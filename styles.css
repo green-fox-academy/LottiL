@@ -1,6 +1,20 @@
+html{
+  background-image: url(background.png);
+  background-repeat:repeat;
+}
+
+header{
+  margin-top: 20px;
+}
+
+body{
+  margin-left: 100px;
+}
+
 h1{
-    font-family: 'Merriweather', serif;
-    color: #000000;
+  font-family: 'Merriweather', serif;
+  color: #000000;
+  font-weight: bolder;
 }
 
 h2{
@@ -9,16 +23,51 @@ h2{
 }
 
 h3{
-    font-family: 'Merriweather', serif;
-    color: #000000;
+  font-family: 'Merriweather', serif;
+  color: #000000;
 }
 
-h4{
-    font-family: 'Merriweather', serif;
-    color: #000000;
+dt{
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  color: #000000;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
+
+dd{
+  font-family: 'Courier New', Courier, monospace;
+  color: #000000;
+  margin-left: 0px;
+}
+
 
 p{
   font-family: 'Courier New', Courier, monospace;
   color: #000000;
+  font-size: 16px;
+}
+
+#menu{
+  height:50px;
+  background-color: rgb(41, 41, 41);  
+  padding-top: 20px;
+  vertical-align:middle;
+  margin-left: -100px;
+  padding-left: 20px;
+}
+
+#links{
+  display: block;
+  color: #ff0099;
+  text-decoration: underline;
+  text-align:right; 
+  margin-top:-30px;
+  margin-right: 25px;
+  /* vertical-align:middle; */
+}
+a:visited {color:#ff0099}
+
+#wiki{
+  text-align:center;
 }
