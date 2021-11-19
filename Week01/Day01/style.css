@@ -1,16 +1,22 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html{
   background-image: url(background.png);
   background-repeat:repeat;
 }
-
-header{
+/*
+  header{
   margin-top: 20px;
 }
 
 body{
   margin-left: 100px;
 }
-
+*/
 h1{
   font-family: 'Merriweather', serif;
   color: #000000;
@@ -48,12 +54,12 @@ p{
   font-size: 16px;
 }
 
-#menu{
+nav{
   height:50px;
-  background-color: rgb(41, 41, 41);  
-  padding-top: 20px;
+  background-color: #333333;  
+  /*padding-top: 20px;
   vertical-align:middle;
-  margin-left: -100px;
+  margin-left: -100px; */
   padding-left: 20px;
 }
 
@@ -64,10 +70,16 @@ p{
   text-align:right; 
   margin-top:-30px;
   margin-right: 25px;
-  /* vertical-align:middle; */
+ /*  vertical-align:middle;  */
 }
+
 a:visited {color:#ff0099}
 
 #wiki{
   text-align:center;
+}
+
+main, header {
+  max-width: 90%;
+  margin: 5% auto;
 }
