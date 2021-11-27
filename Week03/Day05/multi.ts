@@ -21,5 +21,8 @@ let number: number = 15;
 
 export function multiplicationTable(number: number) {
   // write your code here for Gradescope testing
-  
+  for (let i = 1; i <= 10; i++) {
+     console.log(i + " * " + number + " = " + i * number);
+      
+  }
 }
