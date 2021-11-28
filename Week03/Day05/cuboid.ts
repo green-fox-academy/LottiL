@@ -6,9 +6,9 @@
 // Surface Area: 600
 // Volume: 1000
 
-let A = 2.0
-let B = 3.0
-let C = 4.0
+let A = 2.0;
+let B = 3.0;
+let C = 4.0;
 
-console.log("Surface Area: " + 2 * ((A * B) + (B * C) + (A * C)))
-console.log("Volume: " + A * B * C)
+console.log("Surface Area: " + 2 * ((A * B) + (B * C) + (A * C)));
+console.log("Volume: " + A * B * C);

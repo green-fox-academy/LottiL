@@ -4,12 +4,12 @@
 // Example input: 5
 // Example output: Sum: 15, Average: 3
 
-let input: number = 5
-let Sum: number = 0
-let Average: number
+let input: number = 5;
+let Sum: number = 0;
+let Average: number;
 
 for (let i: number = 1; i <= input; i++) {
-    Sum += i
+    Sum += i;
   }
   console.log("Sum: " + Sum); 
   console.log("Average: " + (Sum / input));

@@ -1,6 +1,6 @@
 'use strict';
-let prime: number
-let isPrime: boolean = true
+let prime: number;
+let isPrime: boolean = true;
 
 prime = 863
 
