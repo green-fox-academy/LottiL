@@ -1,18 +1,20 @@
 'use strict';
-let prime: number;
+let myNumber: number;
 let isPrime: boolean = true;
 
-prime = 863
+myNumber = 1
 
-for (let i: number = 2; i < prime; i ++) {
-    if (prime % i === 0) {
-        console.log (prime + " is not a prime number");
+for (let i: number = 2; i < myNumber; i ++) {
+    if (myNumber % i === 0) {
+        console.log (myNumber + " is not a prime number");
         isPrime = false;
         break;
     }
-    
-  }
-
-if (isPrime) {
-    console.log (prime + " is a prime number");
 }
+
+if (myNumber === 1) {
+    console.log (myNumber + " is not a prime number"); 
+}
+else if (isPrime) {
+    console.log (myNumber + " is a prime number");
+}   
