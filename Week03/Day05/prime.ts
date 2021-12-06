@@ -2,7 +2,7 @@
 let myNumber: number;
 let isPrime: boolean = true;
 
-myNumber = 1
+myNumber = 4
 
 for (let i: number = 2; i < myNumber; i ++) {
     if (myNumber % i === 0) {

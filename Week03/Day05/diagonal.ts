@@ -15,30 +15,21 @@ let lineCount: number = 6;
 // The square should have as many lines as lineCount is
 
 let percent: string = "";
-let center: string = ""; 
-        
-for (let i = 0; i < lineCount ; i++) {   
+
+for (let i = 0; i < lineCount; i++) {
     percent = percent + "%";
-}  
+}
 console.log(percent);
 
-for (let i = 0; i < lineCount-2 ; i++) { 
+function spaces(spaceLength: number): string {
     let space: string = "";
-    let space1: string = "";
-    let space2: string = "";
-
-
-
-    for (let j = 0; j < lineCount-2 ; j++){                
-        space =  space + " ";  
-        space1 =  space + " ";
-        space2 = space.substring(1);
-    
-        center = "%" + space1 + "%" + space2 + "%";
+    for (let i = 0; i < spaceLength; i++) {
+        space = space + " ";
     }
-    
+    return space;
+}
 
-    console.log(center);     
-    } 
-    
-console.log(percent) 
+for (let i = 0; i < lineCount - 2; i++) {
+    console.log("%" + spaces(i) + "%" + spaces(lineCount - 3 - i) + "%");
+}
+console.log(percent)
