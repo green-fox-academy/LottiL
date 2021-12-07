@@ -8,4 +8,4 @@ function calculateFactorial(num1: number): number {
     }
     return FactorialOfNum;
 }
-console.log(calculateFactorial(5));
+console.log(calculateFactorial(0));

@@ -4,7 +4,7 @@
 // -  Log the result of `doubleNumber(baseNumber)` to the console
 
 let baseNumber: number = 123;
-function doubleNumber(baseNumber: number): number {
-    return baseNumber = baseNumber * 2;
+function doubleNumber(Number: number): number {
+    return  /* Number = */  Number * 2;
 }
 console.log(doubleNumber(baseNumber))

@@ -3,5 +3,5 @@
 // -  Log the third element to the console
 
 let numbers4: number[] = [1, 2, 3, 4, 5];
-numbers4[2] = numbers4[2] + 1
+numbers4[2] = numbers4[2] + 1;
 console.log(numbers4);
