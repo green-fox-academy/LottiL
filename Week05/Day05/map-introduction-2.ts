@@ -37,15 +37,18 @@ let map: { [key: string]: string } = {
     "978-1-60309-452-8": "A Letter to Jo",
     "978-1-60309-459-7": "Lupus",
     "978-1-60309-444-3": "Red Panda and Moon Bear",
-    "978-1-60309-461-0": "The Lab+",
+    "978-1-60309-461-0": "The Lab",
 };
 
 for (const [key, value] of Object.entries(map)) {
-    console.log(`${value} (ISBN: +${key})`);
+    console.log(`${value} (ISBN: ${key})`);
 }
 
-delete map["978-1-60309-444-3"];
-
+for (const [key, value] of Object.entries(map)) {
+    if (value === "The Lab") {
+        delete map[key];
+    }
+}
 map["978-1-60309-450-4"] = "They Called Us Enemy";
 
 map["978-1-60309-453-5"] = "Why Did We Trust Him?";
