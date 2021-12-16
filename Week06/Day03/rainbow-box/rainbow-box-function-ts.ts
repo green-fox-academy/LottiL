@@ -15,9 +15,11 @@ let rainbow: string[] = ["red", "yellow", "green", "blue", "purple"]
 
 function drawCenterBox(square: number, color: string) {
     ctx.strokeStyle = color;
+    ctx.lineWidth = 10;
     ctx.strokeRect((canvas.width - square) / 2, (canvas.height - square) / 2, square, square);
 }
 
-for (let i = 0; i < rainbow.length; i++) {
-    drawCenterBox(20 * i, rainbow[i]);
+for (let i = 0; i < canvas.height/2; i++) {
+    let randomNumber: number = Math.floor(Math.random() * rainbow.length)
+    drawCenterBox(20 * i+20, rainbow[randomNumber]);
 }
