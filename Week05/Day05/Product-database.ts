@@ -34,4 +34,5 @@ let priceList2: { [key: string]: number } = {
     "Bread": 50,
     "Chicken": 550,
 }
-let keys2: string[] = Object.keys(map);
+let keys2: string[] = Object.keys(priceList2);
+console.log(priceList2["Fish"]);

@@ -82,32 +82,31 @@ let AliceList: { [key: string]: number } = {
     "Tomato": 10,
 }
 
-let BobSum: number = 0;
-let BobPieces: number = 0;
+function howMuchPay(somebodyList:{ [key: string]: number }):void {
+    let Sum: number = 0;
 
-for (const [product, amount] of Object.entries(BobList)) {
-    BobSum = BobSum + priceList[product] * amount;
-    BobPieces += amount;
+    for (const [product, amount] of Object.entries(somebodyList)) {
+        Sum = Sum + priceList[product] * amount;
+    }
+    console.log(Sum);
 }
-console.log(BobSum);
 
-let AliceSum: number = 0;
-let AlicePieces: number = 0;
+howMuchPay(BobList)
+howMuchPay(AliceList)
 
-for (const [product, amount] of Object.entries(AliceList)) {
-    AliceSum = AliceSum + priceList[product] * amount;
-    AlicePieces += amount;
-}
-console.log(AliceSum);
-
-function buyMore(product: string) {
-    if (BobList[product] > (AliceList[product] || 0)) {
+/* function buyMore(product: string) {
+    if (BobList[product] > (AliceList[product]  || Object.keys(AliceList).includes(product) ) ) {
         console.log("Bob");
-    }
-    else if ((0 || BobList[product]) < AliceList[product]) {
+    }else if (( Object.keys(BobList).includes(product) || BobList[product]) < AliceList[product]) {
         console.log("Alice");
-    }
-    else console.log("no one");
+    }else {console.log("no one");}
+} */
+function buyMore(product: string) {
+    if (BobList[product] > (AliceList[product]  || AliceList.hasOwnProperty(product) ) ) {
+        console.log("Bob");
+    }else if (( BobList.hasOwnProperty(product) || BobList[product]) < AliceList[product]) {
+        console.log("Alice");
+    }else {console.log("no one");}
 }
 
 buyMore("Rice");
@@ -117,16 +116,22 @@ buyMore("Apples");
 
 if (Object.entries(AliceList).length > Object.entries(BobList).length) {
     console.log("Alice");
-}
-else if (Object.entries(AliceList).length < Object.entries(BobList).length) {
+}else if (Object.entries(AliceList).length < Object.entries(BobList).length) {
     console.log("Bob");
-}
-else console.log("no one");
+}else console.log("no one");
 
-if (AlicePieces > BobPieces) {
+function howManyPieces(somebodyList:{ [key: string]: number }) :number{
+    let pieces: number = 0;
+    let values: number[] = Object.values(somebodyList);
+
+    for (let i = 0; i < values.length; i++) {
+        pieces += values[i];               
+    }
+    return pieces;          
+}
+
+if (howManyPieces(AliceList) > howManyPieces(BobList)) {
     console.log("Alice");
-}
-else if (AlicePieces < BobPieces) {
-    console.log("Bob");
-}
-else console.log("no one");
+}else if (howManyPieces(AliceList) < howManyPieces(BobList)) {
+    console.log("Bob");  
+}else {console.log("no one");}
