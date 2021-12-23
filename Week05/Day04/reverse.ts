@@ -4,7 +4,7 @@
 
 let toBeReversed: string = `.eslaf eb t'ndluow ecnetnes siht ,dehctiws erew eslaf dna eurt fo sgninaem eht fI`;
 
-function reverse(toBeReversed: string): string {
+export function reverse(toBeReversed: string): string {
     let splitted: string[] = toBeReversed.split("");
     let reversed: string[] = splitted.reverse();
     let reversedString: string = "";
@@ -16,4 +16,3 @@ function reverse(toBeReversed: string): string {
 }
 
 console.log(reverse(toBeReversed));
-export = reverse;
