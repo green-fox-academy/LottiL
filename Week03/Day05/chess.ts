@@ -20,8 +20,7 @@ for (let i = 0; i < lineCount1; i++) {
     if (i % 2 === 0) {
         even = even + " ";
         odd = odd + "%";
-    }
-    else {
+    }else {
         even = even + "%";
         odd = odd + " ";
     }
@@ -30,8 +29,7 @@ for (let i = 0; i < lineCount1; i++) {
 for (let i = 1; i <= lineCount1; i++) {
     if (i % 2 === 0) {
         console.log(even);
-    }
-    else {
+    }else {
         console.log(odd);
     }
 }

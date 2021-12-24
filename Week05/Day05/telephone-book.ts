@@ -38,5 +38,4 @@ for (const [key, value] of Object.entries(phoneBook)) {
 
 if (!!phoneBook["Chris E. Myers"]) {
     console.log("yes");
-}
-else console.log("no");
+}else {console.log("no");}

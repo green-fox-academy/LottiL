@@ -20,9 +20,8 @@ for (let i = 0; i < lineCount; i++) {
     for (let j = 0; j < lineCount; j++) {
         if (i === j) {
             matrix[i][j] = 1;
-        }
-        else
-            matrix[i][j] = 0;
+        }else
+            {matrix[i][j] = 0;}
     }
 }
 

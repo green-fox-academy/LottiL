@@ -1,10 +1,10 @@
 'use strict';
-let MyName: string = "Simon-Lamm Lotti";
-let Age: number = 32;
-let Height: number = 1.64;
-let Married: boolean = true;
+let myName: string = "Simon-Lamm Lotti";
+let age: number = 32;
+let height: number = 1.64;
+let married: boolean = true;
 
-console.log(MyName)
-console.log(Age)
-console.log(Height)
-console.log(Married)
+console.log(myName)
+console.log(age)
+console.log(height)
+console.log(married)

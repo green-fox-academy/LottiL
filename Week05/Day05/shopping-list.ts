@@ -12,7 +12,18 @@ yes
 no */
 
 let shoppingList: string[] = ["eggs", "milk", "fish", "apples", "bread", "chicken"];
-let isMilk: Boolean = false;
+
+function isProduct(product:string) {    
+    if (shoppingList.includes(product)){
+        console.log("yes");
+    }else
+    {console.log("no");}
+}
+
+isProduct("milk")
+isProduct("bananas")
+
+/* let isMilk: Boolean = false;
 let isBananas: Boolean = false;
 
 for (let i = 0; i < shoppingList.length; i++) {
@@ -22,9 +33,9 @@ for (let i = 0; i < shoppingList.length; i++) {
     else if (shoppingList[i] === "bananas") {
         isBananas = true;
     }
-    /* if (isMilk && isBananas) {
-        break;
-    } */
+    // if (isMilk && isBananas) {
+    //    break;
+    //} 
 }
 
 if (isMilk) {
@@ -35,4 +46,4 @@ else console.log("no");
 if (isBananas) {
     console.log("yes");
 }
-else console.log("no");
+else console.log("no"); */

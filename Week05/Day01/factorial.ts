@@ -2,10 +2,10 @@
 //   that returns the factorial of its input
 
 function calculateFactorial(num1: number): number {
-    let FactorialOfNum: number = 1
+    let factorialOfNum: number = 1
     for (let i = 1; i <= num1; i++) {
-        FactorialOfNum = FactorialOfNum * i;
+        factorialOfNum = factorialOfNum * i;
     }
-    return FactorialOfNum;
+    return factorialOfNum;
 }
 console.log(calculateFactorial(0));

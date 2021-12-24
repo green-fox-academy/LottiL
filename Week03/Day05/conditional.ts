@@ -24,7 +24,7 @@ if (10 < b && b < 20) {
 } else if (b > 20) {
     output2 = "More";
 } else 
-    output2 = "10vagy20";
+    {output2 = "10vagy20";}
 console.log(output2);
 
 let c: number = 123;
@@ -61,6 +61,6 @@ if (d % 4 === 0 && time <= 200) {
 } else if (time > 200) {
     output3 = "Time out";
 } else
-    output3 = "Run Forest Run";
+    {output3 = "Run Forest Run";}
     
 console.log(output3);

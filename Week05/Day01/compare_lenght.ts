@@ -11,6 +11,5 @@ let secondList: number[] = [4, 5];
 
 if (secondList.length > firstList.length) {
     console.log("secondList is longer");
-}
-else
-    console.log("firstList is the longer one");
+}else
+    {console.log("firstList is the longer one");}
