@@ -8,8 +8,15 @@
 //console.log(findMatchingIndexes(9, [1, 11, 34, 52, 61]));
 // should print: '[]'
 
-function findMatchingIndexes(num:number,arr:number[]) :number[]{
+let foundNumbers:number[] = [];
 
-    
-    return
+function findMatchingIndexes(num:number,arr:number[]) :number[]{
+    for (let i = 0; i < arr.length; i++) {
+        if (String(arr[i]).search(String(num))>=0) {        
+            foundNumbers.push(i);
+        }       
+    }     
+    return foundNumbers;
 }
+
+console.log(findMatchingIndexes(1, [1, 11, 34, 52, 61]));
