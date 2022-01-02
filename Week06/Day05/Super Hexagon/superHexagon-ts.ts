@@ -4,13 +4,13 @@ const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 export { };
 
-let row: number = 21;
-let side: number = canvas.width / row;
+
+let sideLength = 4;
+let side: number = 20;
 let height: number = Math.sqrt(3) / 2 * side;
-let startXi: number = canvas.width / 2;
-let startYi: number = 0;
-let startXj: number = canvas.width / 2;
-let startYj: number = 0;
+let startXj: number = canvas.width / 2 + side / 2;
+let startYj: number = 10;
+
 
 function connectTheDots(coordinates: number[][]) {
     ctx.beginPath();
@@ -24,18 +24,23 @@ function connectTheDots(coordinates: number[][]) {
     ctx.stroke();
 }
 
-for (let j = 0; j < row; j++) {
-    startXj = startXj + side / 2
-    startYj = startYj + height
+function drawLine(lineLength:number, startX:number,startY:number ) {
+    for (let i = 0; i < lineLength; i++) {
+        let oneHexagon: number[][] = [[startX, startY], [startX + side / 2, startY + height], [startX, startY + 2 * height],
+        [startX - side, startY + 2 * height], [startX + side / 2 - 2 * side, startY + height], [startX - side, startY],]
+        connectTheDots(oneHexagon)
+        startX = startX + side / 2 - 2 * side;
+        startY = startY + height;
+    } 
+}
 
-    for (let i = 0; i < row - j; i++) {
-        let oneTriangle: number[][] = [[startXi, startYi], [startXi + side / 2, startYi + height], [startXi - side / 2, startYi + height]]
-        connectTheDots(oneTriangle)
-        startXi = startXi - side / 2
-        startYi = startYi + height
-    }
-
-    startXi = startXj;
-    startYi = startYj;
-        
+for (let j = 0; j < sideLength*2-1; j++) {
+    if (j < sideLength-1) { 
+        drawLine(sideLength+j,startXj,startYj);
+        startXj = startXj + side / 2 + side;
+        startYj = startYj + height;
+    } else {   
+        drawLine(3*sideLength-j-2,startXj,startYj); //sl+j-2*(j-sl+1)
+        startYj = startYj + 2*height;
+    } 
 }

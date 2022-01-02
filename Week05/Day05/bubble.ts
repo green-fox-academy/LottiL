@@ -27,3 +27,32 @@ function advancedBubble(num:number[],descending:boolean) : number[] {
 }
 
 console.log(advancedBubble([34, 12, 24, 9, 5], true));
+
+/* Órai megoldás
+let numbers: number[] = [88, 34, 12, 24, 9, 5];
+
+function sortWithBubble(notSorted: number[]): number[] {
+    for (let j = 0; j < notSorted.length - 1; j++) {
+        for (let i = 0; i < notSorted.length - 1; i++) {
+            if (notSorted[i] > notSorted[i + 1]) {
+                [notSorted[i], notSorted[i + 1]] = [notSorted[i + 1], notSorted[i]]
+            }
+        }
+    }
+
+    return notSorted;
+}
+
+function sortAdvancedWithBubble(notSorted: number[], ascending: boolean): number[] {
+    for (let j = 0; j < notSorted.length - 1; j++) {
+        for (let i = 0; i < notSorted.length - 1; i++) {
+            let firstItem: number = notSorted[i];
+            let nextItem: number = notSorted[i + 1];
+            if ((firstItem > nextItem && ascending) || (firstItem < nextItem && !ascending)) {
+                [firstItem, nextItem] = [nextItem, firstItem];
+            }
+        }
+    }
+
+    return notSorted;
+} */
