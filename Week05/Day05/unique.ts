@@ -6,7 +6,7 @@ let listOfNumbers: number[] = [1, 11, 34, 11, 2, 52, 20, 52, 61, 1, 34];
 /* export function findUniqueItems(arr: number[]): number[] {
     arr.sort((a, b) => a - b);
     let uniqueList: number[] = [];
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length-1; i++) {
         if (arr[i] !== arr[i + 1]) {
             uniqueList.push(arr[i]);
         }
