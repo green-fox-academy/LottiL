@@ -40,7 +40,7 @@ for (let j = 0; j < sideLength*2-1; j++) {
         startXj = startXj + side / 2 + side;
         startYj = startYj + height;
     } else {   
-        drawLine(3*sideLength-j-2,startXj,startYj); //sl+j-2*(j-sl+1)
+        drawLine(3*sideLength-j-2,startXj,startYj); //sl+j-2*(j-sl+1)-hacsak nem sokkal gyorsabb a másik, akkor ezt kéne beírnom, hogy ne legyen komment
         startYj = startYj + 2*height;
     } 
 }

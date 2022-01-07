@@ -7,14 +7,15 @@
 
 const fs5 = require('fs');
 
-function decryptDoubled(doubledText: string) {
+function decryptDoubled(doubledTextFile: string): string {
     try {
-        let fileContent: string = fs5.readFileSync(doubledText, 'utf-8');
+        let fileContent: string = fs5.readFileSync(doubledTextFile, 'utf-8');
         let decryptedContent: string = "";
         for (let i = 0; i < fileContent.length; i += 2) {
             decryptedContent = decryptedContent + fileContent[i];
         }
         fs5.writeFileSync("output.txt", decryptedContent);
+        return "File is decrypted";
     } catch (error) {
         return "File not found";
     }
@@ -22,4 +23,11 @@ function decryptDoubled(doubledText: string) {
 
 console.log(decryptDoubled("duplicated-chars.txt"))
 
-//it jó az, ha undefined-ot ad vissza? 
+/* nem az én megoldásom, de tetszik:
+function decryptDoubled (filename: string): void {
+    let contentAsArray: string [] = fs.readFileSync(filename, 'utf-8').split("").filter((element: string,  i:number)=>!(i%2===0))
+    let contentAsString: string = contentAsArray.join("");
+    fs.writeFileSync('output.txt', contentAsString)
+
+}
+decryptDoubled('duplicated-chars.txt') */
