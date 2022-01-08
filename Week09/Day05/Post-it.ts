@@ -10,4 +10,6 @@ a yellow with green text: "Superb!" */
 'use strict';
 import { PostIt } from "./Post-it-class";
 
-let firstPostIt = new PostIt("orange", "Idea 1", "blue")
+let firstPostIt = new PostIt("orange", "Idea 1", "blue");
+let secondPostIt = new PostIt("pink", "Awesome", "black");
+let thirdPostIt = new PostIt("yellow", "Superb!", "green");
