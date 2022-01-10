@@ -15,19 +15,16 @@ export class Animal{
         this.thirst = thirst;
     }
 
-    eat(): number{
+    eat(){
         this.hunger -= 1;
-        return this.hunger;
     }
 
-    drink(): number{
+    drink(){
         this.thirst -= 1;
-        return this.thirst;
     }
 
-    play(): [number,number]{
+    play(){
         this.thirst += 1;
-        this.hunger += 1;
-        return [this.thirst , this.hunger];       
+        this.hunger += 1;      
     }
 }

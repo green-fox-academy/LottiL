@@ -8,7 +8,7 @@ a pink with black text: "Awesome"
 a yellow with green text: "Superb!" */
 
 'use strict';
-import { PostIt } from "./Post-it-class";
+import { PostIt } from "./PostIt";
 
 let firstPostIt = new PostIt("orange", "Idea 1", "blue");
 let secondPostIt = new PostIt("pink", "Awesome", "black");
