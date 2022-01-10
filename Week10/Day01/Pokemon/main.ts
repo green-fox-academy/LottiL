@@ -27,17 +27,18 @@ function initializePokemon(): Pokemon[] {
     ];
 }
 
+ function chooseEffective(pokemonOfAsh:Pokemon[], wildPokemon:Pokemon) {
+    let winnerPokemon: string = "I have not enough Pokemon :( "
+    pokemonOfAsh.forEach(element => {
+        if (element.isEffectiveAgainst(wildPokemon)){
+            winnerPokemon = element.name
 
-
-function chooseEffective(pokemonOfAsh:Pokemon, wildPokemon:Pokemon) {
-    initializePokemon().forEach(element => {
-        if (element.isEffectiveAgainst(wildPokemon.type))
-        return element
+        }
     });
-     
-
+    return winnerPokemon    
 }
 
 
+console.log(`I choose you!, ${chooseEffective(initializePokemon(), wildPokemon)}`);
 
-console.log(`I choose you!, ${chooseEffective(pokemonOfAsh, wildPokemon)}`);
+// vagy itt letelni kell egy pokemonOfAsh pokemon[]-t ?
