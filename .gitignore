@@ -1,2 +1,4 @@
 *.zip
 *.ppt
+*.pptx
+./node_modules
