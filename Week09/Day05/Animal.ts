@@ -27,4 +27,8 @@ export class Animal{
         this.thirst += 1;
         this.hunger += 1;      
     }
+
+    getHunger():number{
+        return this.hunger;
+    }
 }

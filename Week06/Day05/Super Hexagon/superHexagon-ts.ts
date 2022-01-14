@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 export { };
 
 
-let sideLength = 4;
+let sideLength = 2;
 let side: number = 20;
 let height: number = Math.sqrt(3) / 2 * side;
 let startXj: number = canvas.width / 2 + side / 2;

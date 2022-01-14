@@ -6,7 +6,7 @@
 const fs1 = require('fs');
 const os = require('os');
 
-function countLines(fileName: string): number {
+export function countLines(fileName: string): number {
 
     try {
         return fs1.readFileSync(fileName, 'utf-8').split(os.EOL).length;

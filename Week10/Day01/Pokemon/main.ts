@@ -27,18 +27,15 @@ function initializePokemon(): Pokemon[] {
     ];
 }
 
- function chooseEffective(pokemonOfAsh:Pokemon[], wildPokemon:Pokemon) {
+function chooseEffective(pokemonOfAsh: Pokemon[], wildPokemon: Pokemon) {
     let winnerPokemon: string = "I have not enough Pokemon :( "
     pokemonOfAsh.forEach(element => {
-        if (element.isEffectiveAgainst(wildPokemon)){
-            winnerPokemon = element.name
-
+        if (element.isEffectiveAgainst(wildPokemon)) {
+            winnerPokemon = element.name;
         }
     });
-    return winnerPokemon    
+    return winnerPokemon;
 }
 
 
-console.log(`I choose you!, ${chooseEffective(initializePokemon(), wildPokemon)}`);
-
-// vagy itt letelni kell egy pokemonOfAsh pokemon[]-t ?
+console.log(`I choose you!, ${chooseEffective(pokemonOfAsh, wildPokemon)}`);

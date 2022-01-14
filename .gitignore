@@ -1,4 +1,5 @@
 *.zip
 *.ppt
 *.pptx
-./node_modules
+node_modules/
+gradescope/

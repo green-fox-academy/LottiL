@@ -7,7 +7,7 @@
 
 const fs5 = require('fs');
 
-function decryptDoubled(doubledTextFile: string): string {
+export function decryptDoubled(doubledTextFile: string): string {
     try {
         let fileContent: string = fs5.readFileSync(doubledTextFile, 'utf-8');
         let decryptedContent: string = "";
