@@ -13,13 +13,13 @@ export class Garden {
     waterGarden(waterAmount: number) {
         let divideNumber = 0;
         for (let i = 0; i < this.plantList.length; i++) {
-            if (this.plantList[i].needWater() === " needs water") {
+            if (this.plantList[i].needWater()) {
                 divideNumber += 1;
             }
         };
 
         for (let j = 0; j < this.plantList.length; j++) {
-            if (this.plantList[j].needWater() === " needs water") {
+            if (this.plantList[j].needWater()) {
                 this.plantList[j].water(waterAmount / divideNumber);
             }
         }
@@ -34,7 +34,3 @@ export class Garden {
     }
 
 }
-
-// vagy jobb lenne úgy megcsinálni, hogy növénylistát kérjen be?
-
-//ha if instance Of, akkor a virágra vonatkozó methodot használja?
