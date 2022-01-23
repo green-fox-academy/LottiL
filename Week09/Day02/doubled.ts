@@ -21,8 +21,6 @@ export function decryptDoubled(doubledTextFile: string): string {
     }
 }
 
-console.log(decryptDoubled("duplicated-chars.txt"))
-
 /* nem az én megoldásom, de tetszik:
 function decryptDoubled (filename: string): void {
     let contentAsArray: string [] = fs.readFileSync(filename, 'utf-8').split("").filter((element: string,  i:number)=>!(i%2===0))

@@ -20,6 +20,7 @@ import { Armada } from "./armada";
 import { BattleApp } from "./battleApp";
 import { WarApp } from "./warApp";
 import { getRandomInt } from "./random";
+import os from 'os';
 
 export class Ship {
     private pirateList: Pirate[] = [];
@@ -80,6 +81,6 @@ export class Ship {
     };
 
     toString(): string {
-        return `${"Captain: " + this.captain + " The number of alive pirates is " + this.getNumberOfAlivePirates() + ".\n"}`
+        return `${os.EOL + "Captain: " + this.captain + " The number of alive pirates is " + this.getNumberOfAlivePirates() + "."}`
     };
 };

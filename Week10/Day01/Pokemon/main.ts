@@ -23,19 +23,26 @@ function initializePokemon(): Pokemon[] {
         new Pokemon('Pikachu', 'electric', 'water'),
         new Pokemon('Charizard', 'fire', 'grass'),
         new Pokemon('Pidgeot', 'flying', 'fighting'),
-        new Pokemon('Kingler', 'water', 'fire')
+        new Pokemon('Kingler', 'water', 'fire'),
+        new Pokemon('Charizard2', 'fire', 'grass')
     ];
 }
 
-function chooseEffective(pokemonOfAsh: Pokemon[], wildPokemon: Pokemon) {
+function chooseEffective(pokemonOfAsh: Pokemon[], wildPokemon: Pokemon){
     let winnerPokemon: string = "I have not enough Pokemon :( "
-    pokemonOfAsh.forEach(element => {
+    for(let element of pokemonOfAsh){
+        if (element.isEffectiveAgainst(wildPokemon)) {
+            winnerPokemon = element.name;
+            break;
+        }
+    }
+
+/*     pokemonOfAsh.forEach(element => {
         if (element.isEffectiveAgainst(wildPokemon)) {
             winnerPokemon = element.name;
         }
-    });
+    }); */
     return winnerPokemon;
 }
-
 
 console.log(`I choose you!, ${chooseEffective(pokemonOfAsh, wildPokemon)}`);

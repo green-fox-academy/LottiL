@@ -8,11 +8,7 @@ Create SharpieSet class
 import { Sharpie } from "../../../Week09/Day05/Sharpie-class";
 
 export class SharpieSet {
-    private listOfSharpies: Sharpie[];
-
-    constructor(listOfSharpies: Sharpie[]) {
-        this.listOfSharpies = listOfSharpies;
-    };
+    private listOfSharpies: Sharpie[] = [];
 
     add(sharpie: Sharpie) {
         this.listOfSharpies.push(sharpie);

@@ -7,19 +7,22 @@ breed() -> creates a new animal if there's place for it
 sell() -> removes the least hungry animal
  */
 
-import { Animal } from "../../../Week09/Day05/Animal";
+import { Animal } from "./Animal";
 
 export class Farm {
-    private listOfAnimals: Animal[];
-    readonly limitOfAnimals: number;
+    private listOfAnimals: Animal[] = [];
+    private limit: number;
 
-    constructor(listOfAnimals: Animal[], limitOfAnimals: number) {
-        this.listOfAnimals = listOfAnimals;
-        this.limitOfAnimals = limitOfAnimals;
+    constructor(limitOfAnimals: number) {
+        this.limit = limitOfAnimals;
+    }
+
+    getLimit(): number {
+        return this.limit;
     }
 
     breed() {
-        if (this.listOfAnimals.length < this.limitOfAnimals) {
+        if (this.listOfAnimals.length < this.limit) {
             let newAnimal = new Animal();
             this.listOfAnimals.push(newAnimal);
         }
@@ -46,6 +49,4 @@ export class Farm {
                 this.listOfAnimals.splice(indexOfHungriestAnimal,1);*/
         this.listOfAnimals.sort((a, b) => b.getHunger() - a.getHunger()).pop();
     }
-
-
 }

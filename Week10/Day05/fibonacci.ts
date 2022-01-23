@@ -6,31 +6,18 @@ The first two values in the sequence are 0 and 1 (essentially 2 base cases).
 Define a recursive fibonacci(n) method that returns the nth fibonacci number, with n=0 representing the start of 
 the sequence. The method must be able to handle invalid input (e.g. negative numbers) */
 
-let fibonacciNumbers: number[] = [0, 1]
+//let fibonacciNumbers: number[] = [0,1];
 function countTheFibonacci(n: number): number {
-    console.log("number is " + n);
-
     if (n < 0) {
         console.log("you should give a positive integer");
-        return 0;
-    } else if (n === 0) {
-        console.log("else if ág");
-        console.log("number is " + n);
-        return 0;
-    } else if (n === 1) {
-        console.log("else if ág");
-        console.log("number is " + n);
-        return 1;
-    }
-    else {
-        console.log("else ág");
-        let newFibonacciNumber: number = countTheFibonacci(n - 1) + fibonacciNumbers[n - 2];
-        fibonacciNumbers.push(newFibonacciNumber);
-        console.log(fibonacciNumbers);
-        console.log("number is " + n);
+        return n;
+    } else if (n === 0 || n === 1) {
+        return n;
+    }else {
+        let newFibonacciNumber: number = countTheFibonacci(n - 1) + countTheFibonacci(n - 2);
+        //fibonacciNumbers.push(newFibonacciNumber);
         return newFibonacciNumber;
     }
 }
 
-console.log("fibonacci : " + countTheFibonacci(6));
-//jó így, hogy a fibonaccinumbert a functionon kívül hozom létre? így működik...
+console.log(countTheFibonacci(8));
