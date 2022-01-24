@@ -24,4 +24,3 @@ console.log(garden.toString());
 garden.waterGarden(70);
 
 console.log(garden.toString());
-

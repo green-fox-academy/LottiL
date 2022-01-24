@@ -1,17 +1,17 @@
 export class Plant {
     private color: string;
-    protected waterLevel: number;
-    protected waterNeed: number;
-    protected className: string;
+    private waterLevel: number;
+    private waterNeed: number;
+    private absorbWater: number;
 
-    constructor(color: string) {
+    constructor(color: string, waterLevel: number,waterNeed: number,absorbWater: number) {
         this.color = color;
-        this.waterLevel = 0;
-        this.waterNeed = 0;
-        this.className = "Plant";
+        this.waterLevel = waterLevel;
+        this.waterNeed = waterNeed;
+        this.absorbWater = absorbWater;
     }
 
-    protected getIntroduction(): string {
+    getIntroduction(): string {
         return `${"The " + this.color + " "}`;
     }
 
@@ -24,13 +24,14 @@ export class Plant {
     }
 
     water(waterAmount: number) {
+        this.waterLevel += waterAmount * this.absorbWater;
     }
 
     toString(): string {
         if (this.needWater()) {
-            return `${this.getIntroduction() + this.className + " needs water"}`;
+            return `${this.getIntroduction() + this.constructor.name + " needs water"}`;
         } else {
-            return `${this.getIntroduction() + this.className + " doesnt need water"}`;
+            return `${this.getIntroduction() + this.constructor.name + " doesnt need water"}`;
         }
     }
 }

@@ -32,5 +32,4 @@ export class Garden {
         })
         return plantsInTheGarden;
     }
-
 }
