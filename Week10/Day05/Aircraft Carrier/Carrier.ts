@@ -18,12 +18,42 @@ export class Carrier {
         this.listOfAircrafts.push(aircraft);
     }
 
-    fight(otherCarrier: Carrier) {
-        let causedDamage = 0;
+    fill(){
+        let ammoNeed: number = 0;
         this.listOfAircrafts.forEach(aircraft => {
-            causedDamage += aircraft.fight();
+            ammoNeed += aircraft.getMaxNumberOfAmmo();
         })
-        otherCarrier.healthPoint -= causedDamage;
+        if (this.numberOfStoredAmmo === 0) {
+            console.log("We are out ot Ammo, sorry");
+        } else if (this.numberOfStoredAmmo < ammoNeed) {
+            this.listOfAircrafts.forEach(aircraft => {
+                if (aircraft.isPriority()) {
+                    this.numberOfStoredAmmo = aircraft.refillAmmo(this.numberOfStoredAmmo);
+                }
+            });
+            this.listOfAircrafts.forEach(aircraft => {
+                if (!aircraft.isPriority()) {
+                    this.numberOfStoredAmmo = aircraft.refillAmmo(this.numberOfStoredAmmo);
+                }
+            });
+        } else {
+            this.listOfAircrafts.forEach(aircraft => {
+                this.numberOfStoredAmmo = aircraft.refillAmmo(this.numberOfStoredAmmo);
+            });
+        }
+    }
+
+    fight(otherCarrier: Carrier) {
+        let causedDamage = 0;    
+        this.listOfAircrafts.forEach(aircraft => {
+            if (otherCarrier.healthPoint > 0) {
+                causedDamage = aircraft.fight();
+                otherCarrier.healthPoint -= causedDamage; 
+            }
+        }); 
+        if (otherCarrier.healthPoint < 0) {
+            otherCarrier.healthPoint = 0;
+        }     
     }
 
     getStatus(): string {

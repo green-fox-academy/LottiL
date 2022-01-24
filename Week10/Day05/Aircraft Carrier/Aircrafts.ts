@@ -1,14 +1,14 @@
 export class Aircraft {
-    protected numberOfAmmo: number;
-    protected maxNumberOfAmmo: number;
-    protected baseDamage: number;
-    protected type: string;
+    private numberOfAmmo: number;
+    private maxNumberOfAmmo: number;
+    private baseDamage: number;
+    private isPrio: boolean;
 
-    constructor(){
-        this.numberOfAmmo = 0;
-        this.maxNumberOfAmmo = 0;
-        this.baseDamage = 0;
-        this.type = ""
+    constructor(numberOfAmmo: number, maxNumberOfAmmo: number, baseDamage: number, isPrio: boolean) {
+        this.numberOfAmmo = numberOfAmmo;
+        this.maxNumberOfAmmo = maxNumberOfAmmo;
+        this.baseDamage = baseDamage;
+        this.isPrio = isPrio;
     }
 
     fight(): number {
@@ -28,19 +28,23 @@ export class Aircraft {
         return remainingAmmo;
     }
 
-    getType(): string {
-        return ""
-    }
-
-    getAllDamage():number{
+    getAllDamage(): number {
         return this.baseDamage * this.numberOfAmmo;
     }
 
+    getType():string{
+        return this.constructor.name;
+    }
+
     getStatus(): string {
-        return `${"Type " + this.type + ", Ammo: " + this.numberOfAmmo + ", Base Damage: " + this.baseDamage + ", All Damage: " + this.getAllDamage()}`;
+        return `${"Type " + this.getType() + ", Ammo: " + this.numberOfAmmo + ", Base Damage: " + this.baseDamage + ", All Damage: " + this.getAllDamage()}`;
     }
 
     isPriority(): boolean {
-        return true;
+        return this.isPrio;
+    }
+
+    getMaxNumberOfAmmo() {
+        return this.maxNumberOfAmmo
     }
 }
