@@ -5,6 +5,34 @@
 // If the file can't be opened it should return this message: File not found
 // The result should be saved in the output.txt file
 
+import fs from 'fs';
+import os from 'os';
+
+export function decryptDoubled(doubledTextFile: string){
+    try {
+        let fileContent: string[] = fs.readFileSync(doubledTextFile, 'utf-8').split(os.EOL);
+        let decryptedContent: string = "";
+        for (let j = 0; j < fileContent.length; j++) {
+            let lineEnding: string = os.EOL;
+            if (j === fileContent.length - 1) {
+                lineEnding = "";
+            }
+            for (let i = 0; i < fileContent[j].length; i += 2) {
+                decryptedContent += fileContent[j][i];
+            }
+            decryptedContent += lineEnding;
+        }
+
+        fs.writeFileSync("output.txt", decryptedContent);
+    } catch (error) {
+        return "File not found";
+    }
+}
+
+decryptDoubled("duplicated-chars.txt");
+
+
+/* gradescope előtti megoldás
 const fs5 = require('fs');
 
 export function decryptDoubled(doubledTextFile: string): string {
@@ -19,7 +47,7 @@ export function decryptDoubled(doubledTextFile: string): string {
     } catch (error) {
         return "File not found";
     }
-}
+} */
 
 /* nem az én megoldásom, de tetszik:
 function decryptDoubled (filename: string): void {
