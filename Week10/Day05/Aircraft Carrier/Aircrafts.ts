@@ -4,8 +4,8 @@ export class Aircraft {
     private baseDamage: number;
     private isPrio: boolean;
 
-    constructor(numberOfAmmo: number, maxNumberOfAmmo: number, baseDamage: number, isPrio: boolean) {
-        this.numberOfAmmo = numberOfAmmo;
+    constructor(maxNumberOfAmmo: number, baseDamage: number, isPrio: boolean) {
+        this.numberOfAmmo = 0;
         this.maxNumberOfAmmo = maxNumberOfAmmo;
         this.baseDamage = baseDamage;
         this.isPrio = isPrio;
