@@ -24,7 +24,7 @@ export class Carrier {
             ammoNeed += aircraft.getMaxNumberOfAmmo();
         })
         if (this.numberOfStoredAmmo === 0) {
-            console.log("We are out ot Ammo, sorry");
+            throw new Error ("We are out ot Ammo, sorry");            
         } else if (this.numberOfStoredAmmo < ammoNeed) {
             this.listOfAircrafts.forEach(aircraft => {
                 if (aircraft.isPriority()) {
