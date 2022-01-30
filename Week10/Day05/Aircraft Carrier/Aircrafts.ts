@@ -44,7 +44,7 @@ export class Aircraft {
         return this.isPrio;
     }
 
-    getMaxNumberOfAmmo() {
+    getMaxNumberOfAmmo() :number{
         return this.maxNumberOfAmmo
     }
 }

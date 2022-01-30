@@ -14,11 +14,11 @@ export class Carrier {
         this.listOfAircrafts = [];
     }
 
-    add(aircraft: Aircraft) {
+    add(aircraft: Aircraft) :void{
         this.listOfAircrafts.push(aircraft);
     }
 
-    fill(){
+    fill():void{
         let ammoNeed: number = 0;
         this.listOfAircrafts.forEach(aircraft => {
             ammoNeed += aircraft.getMaxNumberOfAmmo();
@@ -43,7 +43,7 @@ export class Carrier {
         }
     }
 
-    fight(otherCarrier: Carrier) {
+    fight(otherCarrier: Carrier) :void {
         let causedDamage = 0;    
         this.listOfAircrafts.forEach(aircraft => {
             if (otherCarrier.healthPoint > 0) {

@@ -6,11 +6,11 @@ import os from 'os';
 export class Garden {
     private plantList: Plant[] = [];
 
-    addPlant(plant: Plant) {
+    addPlant(plant: Plant): void {
         this.plantList.push(plant);
     }
 
-    waterGarden(waterAmount: number) {
+    waterGarden(waterAmount: number): void {
         let divideNumber = 0;
         for (let i = 0; i < this.plantList.length; i++) {
             if (this.plantList[i].needWater()) {
