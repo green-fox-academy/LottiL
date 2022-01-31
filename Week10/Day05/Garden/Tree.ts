@@ -3,6 +3,6 @@ import { Plant } from "./Plant";
 export class Tree extends Plant {
 
     constructor(color: string) {
-        super(color,0,10,0.4)
+        super(color,10,0.4)
     }
 }

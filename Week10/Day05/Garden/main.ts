@@ -1,4 +1,3 @@
-import { Plant } from "./Plant";
 import { Flower } from "./Flower";
 import { Tree } from "./Tree";
 import { Garden } from "./Garden";

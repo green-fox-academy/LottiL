@@ -1,12 +1,11 @@
 export class Plant {
     private color: string;
-    private waterLevel: number;
+    private waterLevel: number = 0;
     private waterNeed: number;
     private absorbWater: number;
 
-    constructor(color: string, waterLevel: number,waterNeed: number,absorbWater: number) {
+    constructor(color: string, waterNeed: number, absorbWater: number) {
         this.color = color;
-        this.waterLevel = waterLevel;
         this.waterNeed = waterNeed;
         this.absorbWater = absorbWater;
     }
@@ -16,11 +15,7 @@ export class Plant {
     }
 
     needWater(): boolean {
-        if (this.waterLevel <= this.waterNeed) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.waterLevel <= this.waterNeed;
     }
 
     water(waterAmount: number) {
