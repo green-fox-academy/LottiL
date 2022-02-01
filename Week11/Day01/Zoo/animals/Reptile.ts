@@ -16,4 +16,8 @@ export class Reptile extends Animal{
     eat() :void{
         console.log(`${"I eat " + this.favoriteFood}`)
     }
+
+    setFavoriteFood(favoriteFood:string):void{
+        this.favoriteFood = favoriteFood;
+    }
 }

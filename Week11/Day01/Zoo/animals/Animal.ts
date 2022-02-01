@@ -22,4 +22,12 @@ export abstract class Animal {
     abstract breed():string;
 
     abstract eat():void;
+
+    setAge(age:number):void{
+        this.age=age;
+    }
+    
+    setGender(gender:Gender):void{
+        this.gender=gender;
+    }
 }
