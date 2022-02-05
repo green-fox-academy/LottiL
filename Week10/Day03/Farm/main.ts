@@ -10,7 +10,7 @@ function initializeAnimal(numberOfAnimal: number): Animal[] {
 }
 let animalList: Animal[] = initializeAnimal(5);
 
-let myFarm = new Farm(animalList, 7);
+let myFarm = new Farm(7);
 
 animalList[0].play();
 animalList[1].eat();

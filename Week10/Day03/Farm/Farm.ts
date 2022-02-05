@@ -7,7 +7,7 @@ breed() -> creates a new animal if there's place for it
 sell() -> removes the least hungry animal
  */
 
-import { Animal } from "./Animal";
+import { Animal } from "../../../Week09/Day05/Animal";
 
 export class Farm {
     private listOfAnimals: Animal[] = [];
