@@ -4,3 +4,4 @@
 node_modules/
 gradescope/
 *.txt
+matrix.test.js
