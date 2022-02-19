@@ -5,7 +5,7 @@
 
 let listOfNumbers: number[] = [2, 4, 6, 8, 10, 12, 14, 16];
 
-function checkNums(listOfNumbers: number[]) {
+function checkNums(listOfNumbers: number[]) :boolean{
     let isInList : boolean = true;
     let numbersToCheck : number [] = [4,8,12,16];  // ezt paraméterként is megadhatnám
     for (let i = 0; i < numbersToCheck.length; i++) {

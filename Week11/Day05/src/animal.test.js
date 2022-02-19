@@ -1,22 +1,21 @@
 import { globalAgent } from "http";
 import {Animal} from "./animal"
 
-describe('Animal', () => {
-    let dog = new Animal();
-    let cat = new Animal(10,10);
-    let horse = new Animal;
-  
-    test("when dog plays, its hunger increase ", () => {
+describe('Animal', () => {  
+    test("when an animal plays, its hunger increase by one", () => {
+        let dog = new Animal();
         dog.play();
         expect(dog.getHunger()).toEqual(51);
     });
   
-    test("when horse eat, its hunger decrease ", () => { 
+    test("when an animal eat, its hunger decrease by one", () => { 
+        let horse = new Animal;
         horse.eat();
         expect(horse.getHunger()).toEqual(49);
     });
   
-    test("cat's hunger is 10", () => { 
+    test("gethunger returns the correct value", () => { 
+        let cat = new Animal(10,10);
         expect(cat.getHunger()).toEqual(10);
     });
   })

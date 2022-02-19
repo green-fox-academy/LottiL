@@ -1,6 +1,6 @@
 import { countLetters } from "./countLetters";
 
-test("test with input 'abcabaA'", () => { 
+test("countLetters returns with valid letter-number pairs", () => { 
     expect(countLetters("abcabaA")).toEqual({
         "A": 1,
         "a": 3,

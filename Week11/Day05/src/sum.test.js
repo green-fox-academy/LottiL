@@ -11,7 +11,7 @@ describe('Sum', () => {
     expect(mySum.sum([1])).toEqual(1);
   });
 
-  test("sum works with empty array", () => { 
+  test("sum of an empty array return zero", () => { 
     expect(mySum.sum([])).toEqual(0);
   });
 })
