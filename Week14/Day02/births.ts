@@ -23,6 +23,7 @@ export function findTheYearWhenMostBirthsHappened(fileName: string): string {
         let oneRow: string[] = row.split(";");
         birthDates.push(oneRow[1])
     })
+    
     let birthYears: string[] = [];
     birthDates.forEach(date => {
         let oneDate: string[] = date.split("-");

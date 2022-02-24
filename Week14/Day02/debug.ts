@@ -14,18 +14,24 @@ export function findDebug(fileName: string): string[] {
     try {
         fileContent = fs.readFileSync(fileName, 'utf-8').split(os.EOL);
     } catch (error) {
-        console.error("Cannot read the bloody file");
-        return [];
+        throw new Error("Cannot read the bloody file");
     }
-    let wordsWithOutPoint: string[] = [];
+    let textsWithOutPoint: string[] = [];
     fileContent.forEach(element => {
-        let words: string[] = element.split(".");
-        words.forEach(w => {
-            wordsWithOutPoint.push(w);
+        let text: string[] = element.split(".");
+        text.forEach(t => {
+            textsWithOutPoint.push(t);
         })
     });
+
+/*     for (const element of fileContent) {
+        for (const t of element.split(".")) {
+            textsWithOutPoint.push(t);
+        }        
+    } */
+
     let wordsInFile: string[] = []
-    wordsWithOutPoint.forEach(element => {
+    textsWithOutPoint.forEach(element => {
         let words: string[] = element.split(" ");
         words.forEach(w => {
             wordsInFile.push(w);
@@ -36,9 +42,7 @@ export function findDebug(fileName: string): string[] {
         let wordsLength: number = w.length - 3;
         let word: string = w.toLowerCase();
 
-        if (word.includes("de", 0) && !word.includes("bug", wordsLength)) {
-            result.push(w);
-        } else if (word.includes("bug", wordsLength)) {
+        if (word.includes("de", 0) || word.includes("bug", wordsLength)) {
             result.push(w);
         }
     })
@@ -46,3 +50,5 @@ export function findDebug(fileName: string): string[] {
 }
 
 console.log(findDebug("debug.txt"))
+
+//includes nem jó, startsWith, EndsWith kéne.

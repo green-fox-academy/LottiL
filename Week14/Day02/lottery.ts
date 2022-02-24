@@ -5,7 +5,6 @@ import os from 'os';
 
 export function findFiveMostCommonNumbers(fileName: string)/* : number[] */ {
     let fileContent: string[] = [];
-    let result: number[]= [];
     try {
         fileContent = fs.readFileSync(fileName, 'utf-8').split(os.EOL);
     } catch (error) {
@@ -35,8 +34,6 @@ export function findFiveMostCommonNumbers(fileName: string)/* : number[] */ {
     numberOfNumbers.sort((a, b) => b.numberOfCharacter - a.numberOfCharacter);
 
     return numberOfNumbers.slice(0,5);
-
-    /* return result; */
 }
 
 console.log(findFiveMostCommonNumbers("lottery.csv"))
