@@ -15,7 +15,8 @@ export function findTheYearWhenMostSongsWasWritten(fileName: string): string {
 
     let years: string[] = [];
 
-    try {
+   /*  try {
+       //itt valahogy nem sikerült a return.
         fileContent.forEach(row => {
             let oneRow: string[] = row.split(";");
                         
@@ -28,8 +29,17 @@ export function findTheYearWhenMostSongsWasWritten(fileName: string): string {
     } catch (error) {
         console.error("")
         return"";
+    } */
+
+
+    for (let i = 0; i < fileContent.length; i++) {
+        let oneRow: string[] = fileContent[i].split(";");
+        if(oneRow[3]===undefined){
+            return "Something went wrong, in the "+ fileContent[i][0] + ". row.";
+        } else {
+            years.push(oneRow[3]);
+        }        
     }
-    //ez így se return-öl, kipróbálni for ciklussal, return-el is.
 
     let numberOfYears: { [key: string]: number } = {}
     years.forEach(year => {

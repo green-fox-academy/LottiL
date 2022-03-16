@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    height: 500px;
+    flex-wrap: wrap;
+    justify-content: right;
+    background-color: #FFD62A;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+  
+.green {
+    background-color: #51D400;
+    width: 150px;
+    height: 500px;
+}
+  
+a {
+    width: 90px;
+    height: 30px;
+    background-color: cyan;
+    margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+  
+ 
+  
+header {
+    height: 70px;
+    background-color: #B02AFF;
+    display: flex;
+    top: 0;
+    justify-self: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
