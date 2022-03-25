@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+body{
+    margin: 100px auto;
+    background-color: lightgray;
+    width: 50vw;
+}
+
+.arrow{
+    cursor: pointer;
+    margin: 10px;
+}
+
+#right_arrow {
+    transform: rotate(180deg);
+}
+
+.image-slider{
+    height: 360px;
+    width: 720px;
+    background-color: white; 
+}
+
+.slider-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main_image_container img{    
+    height: 360px;
+    width: 640px;
+}
+
+.thumbnails{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbnails img{
+    height: 45px;
+    width: 80px;
+    cursor: pointer;
+}
