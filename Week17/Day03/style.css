@@ -31,9 +31,30 @@ body{
     justify-content: center;
 }
 
+/* #main_image_container{
+    display: flex;
+    align-items: flex-end;
+} */
+
 #main_image_container img{    
     height: 360px;
     width: 640px;
+    /* vertical-align: sub; */
+}
+
+#main_image_container div{    
+    background-color: black;
+    opacity: 0.7;
+}
+
+#main_image_container div h1{    
+    color: antiquewhite;
+}
+
+#main_image_container div p{    
+    color: antiquewhite;
+    font-size: 12px;
+    font-weight: 100;
 }
 
 .thumbnails{

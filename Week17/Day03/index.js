@@ -40,8 +40,19 @@ function mainImageSelect(index) {
     mainContainer.innerHTML = "";
     mainImage.setAttribute("src", images[index].file);
     mainContainer.appendChild(mainImage);
-    //let mainDescription = document.createElement("div")
-    //vmi div-et létrehozni
+
+    let mainDescription = document.createElement("div");
+    mainContainer.appendChild(mainDescription);
+
+    let mainTitle = document.createElement("h1");
+    mainDescription.appendChild(mainTitle);
+    mainTitle.textContent = images[index].title;
+    mainTitle.classList.add = "mainTitle";
+
+    let mainText = document.createElement("p");
+    mainDescription.appendChild(mainText);
+    mainText.textContent = images[index].description;
+    mainText.classList.add = "mainText";
 }
 
 //képekre szöveg
