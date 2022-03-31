@@ -47,12 +47,12 @@ function mainImageSelect(index) {
     let mainTitle = document.createElement("h1");
     mainDescription.appendChild(mainTitle);
     mainTitle.textContent = images[index].title;
-    mainTitle.classList.add = "mainTitle";
+    //mainTitle.classList.add("mainTitle");
 
     let mainText = document.createElement("p");
     mainDescription.appendChild(mainText);
     mainText.textContent = images[index].description;
-    mainText.classList.add = "mainText";
+    //mainText.classList.add("mainText");
 }
 
 //képekre szöveg
