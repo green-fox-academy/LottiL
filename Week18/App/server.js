@@ -53,7 +53,6 @@ app.post('/api/my_app', (req, res) => {
     });
 });
 
-//ez amúgy GET, csak annak nem lehet body-ja???? Ha már átírom, inkább post legyen
 app.get('/api/my_app', (req, res) => {
     const query = `
         SELECT * FROM app
