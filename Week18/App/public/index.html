@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Baby output monitor</h1>
+  <label for="where">Where:</label>
+  <select id="where" name="where">
+    <option value="diaper">diaper</option>
+    <option value="toilet">toilet</option>
+  </select>
+  <p>please use this date format: YYYY-MM-DD HH:MI:SS</p>
+  <textarea id="when" rows="1" cols="19">Date</textarea>
+  <div class="container">
+    <button id="pee">
+      Pee
+    </button>
+    <button id="poo">
+      Poo
+    </button>
+    <button id="both">
+      Pee & Poo
+    </button>
+  </div>
+  <div class="container2"></div>
+  <p>please use this date format: YYYY-MM-DD HH:MI:SS</p>
+  <textarea id="from" rows="1" cols="19">Date from</textarea> <!--van date input field-->
+  <textarea id="to" rows="1" cols="19">Date to</textarea>
+  <div>
+  <button id="search">
+    Search
+  </button>
+  </div>
+  <p>Results:</p>
+  <textarea id="result" rows="100" cols="50"></textarea>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
