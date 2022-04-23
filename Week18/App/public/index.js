@@ -1,5 +1,5 @@
 const filterByDate = async (event) => {
-    const resource = '/api/my_app';
+    const resource = '/api/filter';
     //const response = await fetch(resource);
     //const data = await response.json();
 
@@ -18,6 +18,7 @@ const filterByDate = async (event) => {
     const data = await response.json();
 
     if (!response.ok) {
+        //window.alert(`GET ${resource}`, data.message);
         console.log(`GET ${resource}`, data.message);
         return;
     }
@@ -27,7 +28,7 @@ const filterByDate = async (event) => {
 
 const handleClick = (event, peeOrPoo) => {
     event.preventDefault();
-    createSubmitHandler('POST', '/api/my_app', peeOrPoo)(event);
+    createSubmitHandler('POST', '/api/new_output', peeOrPoo)(event);
 };
 
 const createSubmitHandler = (method, resource, peeOrPoo) => async (event) => {

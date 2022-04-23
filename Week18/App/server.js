@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
     res.redirect('/index.html');
 });
 
-app.post('/api/my_app', (req, res) => {
+app.post('/api/new_output', (req, res) => {  //events
     const query = `
         INSERT INTO app (dt, what, place)
         VALUES (?, ?, ?)
@@ -53,7 +53,7 @@ app.post('/api/my_app', (req, res) => {
     });
 });
 
-app.get('/api/my_app', (req, res) => {
+app.get('/api/filter', (req, res) => {  //events (itt lehet több lekérdezés is majd)
     const query = `
         SELECT * FROM app
         WHERE dt BETWEEN ? AND ?

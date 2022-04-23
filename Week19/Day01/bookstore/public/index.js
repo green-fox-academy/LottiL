@@ -14,7 +14,7 @@ const retrieveBooks = async () => {
     const data = await response.json();
 
     if (!response.ok) {
-        showError(`GET ${resource}`, data.message);
+        console.log(`GET ${resource}`, data.message);
         return;
     }
 

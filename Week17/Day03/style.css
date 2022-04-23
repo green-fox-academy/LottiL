@@ -55,7 +55,7 @@ body{
     color: antiquewhite;
 }
 
-#main_image_container div p{    
+#main_image_container div p{    /* classt adni ennek js-ben, úgy szebb lenne */
     color: antiquewhite;
     font-size: 12px;
     font-weight: 100;

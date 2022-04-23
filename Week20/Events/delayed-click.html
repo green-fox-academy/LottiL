@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Button</button>
+    <p></p>
+
+    <script>
+        /*   Create a simple HTML document with one button. If the user clicks the button it should wait 
+        2 seconds and it should show a text under the button: 2 seconds ellapsed */
+        window.addEventListener('DOMContentLoaded', () => {
+            const button = document.querySelector('button');
+            const text = document.querySelector('p');
+            let timeout = null;
+
+            function handleClick() {
+                text.textContent = "2 seconds ellapsed";
+            }
+
+            button.addEventListener('click', (event) => {
+                // The default 'click' event for a Submit button is reloading the page
+                event.preventDefault();
+
+                if (timeout !== null) {
+                    clearTimeout(timeout);
+                }
+                timeout = setTimeout(handleClick, 2000);
+            });
+        });  
+    </script>
+</body>
+
+</html>
