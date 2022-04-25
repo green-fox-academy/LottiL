@@ -88,7 +88,7 @@ app.put('/posts/:id/downvote', (req, res) => {
 });
 
 app.delete('/posts/:id', (req, res) => {  //Máté kódrészlete, csak azért van benne, hogy lássam egyben.
-  const id = Number(req.params.id);
+  const id = parseInt(req.params.id);
   if (isNaN(id)) {
     res.status(400).send({ message: 'invalid ID' });
     return;
@@ -96,7 +96,7 @@ app.delete('/posts/:id', (req, res) => {  //Máté kódrészlete, csak azért va
 
   const username = req.headers.username;
   if (!username) {
-    res.status(401, { message: 'Unauthorized' });
+    res.status(401).send({ message: 'Unauthorized1' });
     return;
   }
 
@@ -110,18 +110,18 @@ app.delete('/posts/:id', (req, res) => {  //Máté kódrészlete, csak azért va
     }
 
     if (rows.length === 0) {
-      res.status(404, { message: 'Not found' });
+      res.status(404).send({ message: 'Not found' });
       return;
     }
 
     const owner = rows[0].owner;
 
     if (username !== owner) {
-      res.status(401, { message: 'Unauthorized' });
+      res.status(401).send({ message: 'Unauthorized2' });
       return;
     }
 
-    const deleteQuery = `DELETE * FROM posts WHERE id = ?`;
+    const deleteQuery = `DELETE FROM posts WHERE id = ?`;
     conn.query(deleteQuery, params, (deleteErr) => {
       if (deleteErr) {
         res.status(500).send({ message: 'DB error' });
