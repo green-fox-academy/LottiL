@@ -1,0 +1,36 @@
+<!-- Frontend
+Create a simple form featuring two fields
+Name (call it username)
+Email (call it email)
+Both fields should be required via HTML5 form validation
+The frontend should send the form via POST method to the backend service.
+Action should be http://localhost:3000/signup
+Try to implement the design above if you have time but keep in mind that functionality should be the top priority
+Backend
+Create a server.js file
+Create a /signup endpoint that handles the submitted form data
+Send back some HTML to the browser with the submitted data:
+<h1>Thanks {username}, we will send updates to {email}</h1>
+Hint: https://expressjs.com/en/api.html#req.body -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newsletter</title>
+</head>
+<body>
+    <div class = container>
+        <form action="/signup" method="POST">
+            <h1>Subscribe to our newsletter</h1>
+            <label for="full_name" >Full name</label><br/>
+            <input name="name" placeholder = "name" type="text" id = "full_name"><br/>
+            <label for="email">Email address</label><br/>
+            <input name="email" placeholder = "email" type="email" id = "email"><br/>
+            <button id="submit-btn" type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
