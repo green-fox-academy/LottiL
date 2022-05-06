@@ -1,3 +1,16 @@
+//import {Plotly} from './node_modules/plotly.js-dist';
+
+/* import { Plotly } from 'plotly.js-dist';
+Plotly = require('plotly.js-distr'); */
+
+const createTableRow = (app) => `
+  <tr>
+    <td>${app.dt}</td>
+    <td>${app.what}</td>
+    <td>${app.place}</td>
+  </tr>
+`;
+
 const filterByDate = async (event) => {
     const resource = '/api/filter';
     //const response = await fetch(resource);
@@ -23,7 +36,10 @@ const filterByDate = async (event) => {
         return;
     }
 
-    document.querySelector('#result').innerHTML = JSON.stringify(data, null, 4); //itt lehetne a data-n végigmenni (foreach)
+    const rows = data.map(createTableRow);
+    console.log(rows)
+    document.querySelector('#data-rows').innerHTML = rows.join('');
+    //document.querySelector('#result').innerHTML = JSON.stringify(data, null, 4); //itt lehetne a data-n végigmenni (foreach)
 };
 
 const handleClick = (event, peeOrPoo) => {
@@ -60,4 +76,10 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#pee').onclick = (event) => { handleClick(event, 'pee') };
     document.querySelector('#poo').onclick = (event) => { handleClick(event, 'poo') };
     document.querySelector('#both').onclick = (event) => { handleClick(event, 'both') };
+
+/*     const TESTER = document.getElementById('tester');
+	Plotly.newPlot( TESTER, [{
+	x: [1, 2, 3, 4, 5],
+	y: [1, 2, 4, 8, 16] }], {
+	margin: { t: 0 } } ); */
 });
