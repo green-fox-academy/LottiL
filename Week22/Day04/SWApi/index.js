@@ -10,11 +10,11 @@ async function getMovies() {
             names.innerHTML = "";
             const data = await response.json();
             for (let i = 0; i < data.results.length; i++) {
-                const oneName = document.createElement('li');
-                names.appendChild(oneName);
-                oneName.textContent = data.results[i].name;
-                oneName.onclick = function(){
-                    getTitle(data.results[i]);
+                const oneNameElem = document.createElement('li');
+                names.appendChild(oneNameElem);
+                oneNameElem.textContent = data.results[i].name;
+                oneNameElem.onclick = function(){
+                    getTitles(data.results[i]);
                 }
             }
         } else {
@@ -59,12 +59,12 @@ async function getMovies() {
     }    
 } */
 
-async function getTitle(name){
+async function getTitles(name){
     const films = document.querySelector('#films');
     films.innerHTML = "";
     for (let i = 0; i < name.films.length; i++) {
-        const oneFilm = document.createElement('li');
-        films.appendChild(oneFilm);
+        const oneFilmElem = document.createElement('li');
+        films.appendChild(oneFilmElem);
 
         try {
             const film = name.films[i];
@@ -72,7 +72,7 @@ async function getTitle(name){
     
             if (response.ok) {
                 const data = await response.json();
-                oneFilm.textContent = data.title;
+                oneFilmElem.textContent = data.title;
             } else {
                 alert(response.statusText);//vagy szépen beleírjuk egy hibaüzenetes ablakba
             }
