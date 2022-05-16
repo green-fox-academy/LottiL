@@ -12,6 +12,27 @@ h1 {
 }
 
 #container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    background-color: #2EC4B6;
+}
+
+#left-container {
+    flex-flow: column wrap;
+    justify-content: flex-start;
+}
+
+#graphical {
+    max-height: 500px;
+    align-self: center;
+}
+
+.table {
+    background-color: white;
+}
+
+/* #container {
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr, 1fr, 1fr, 1fr, 6fr;
@@ -20,7 +41,7 @@ h1 {
 
 #place {
     grid-column: 1;
-    grid-row: 1;
+    grid-row: 1; 
 }
 
 #date {
@@ -40,14 +61,14 @@ h1 {
 
 #graphical {
     grid-column: 1;
-    grid-row: 5;
+     grid-row: 5;
 }
 
 #results {
     grid-column: 2;
     text-align: center;
-    grid-row: 1/6;
-}
+    grid-row: 1/6; 
+} */
 
 table,
 th,

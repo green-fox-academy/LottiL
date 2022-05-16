@@ -1,0 +1,45 @@
+@media screen and (min-width: 800px){
+    .container {
+        display: flex;
+        height: 150px;
+        min-width: 500px;
+    }
+    
+    .green {
+        background-color: #51D400;
+        flex-grow: 1;
+    }
+    
+     .yellow{
+        background-color: #FFD62A;
+        flex-grow: 2;
+    }
+    
+    .purple {
+        background-color: #B02AFF;
+        flex-grow: 1;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .container {
+        display: flex;
+        min-width: 600px;
+        flex-direction: column;
+    }
+    
+    .green {
+        background-color: #51D400;
+        height: 150px;
+    }
+    
+     .yellow{
+        background-color: #FFD62A;
+        height: 150px;
+    }
+    
+    .purple {
+        background-color: #B02AFF;
+        height: 150px;
+    }
+}

@@ -2,6 +2,8 @@ CREATE DATABASE my_app;
 
 USE my_app;
 
+DELETE TABLE app;
+
 CREATE TABLE app (
     id INT AUTO_INCREMENT,
     dt DATETIME NOT NULL,

@@ -83,5 +83,11 @@ app.use('/api/*', (req, res) => {
     res.status(404).send({ message: 'Not found' });
  });
 
-app.listen(port, () =>
+if (process.env.NODE_ENV != 'test') {
+    app.listen(port, () =>
     console.log(`Server running at http://localhost:${port}`));
+}
+//app.listen(port, () =>
+//    console.log(`Server running at http://localhost:${port}`));
+
+module.exports = {app, pool}
