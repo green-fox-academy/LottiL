@@ -1,0 +1,65 @@
+<!-- Create a simple HTML document with one button.
+If the user clicks the button 3 times, and 5 seconds is already elapsed since the page is loaded, a text should appear under the button:
+5 seconds elapsed and clicked 3 times
+If the user starts clicking before the first 5 seconds, nothing should be printed -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Button</button>
+    <p></p>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const button = document.querySelector('button');
+
+            timeout = setTimeout(addEventListenerToButton, 5000);
+        })
+
+        function addEventListenerToButton() {
+            const button = document.querySelector('button');
+            let counter = 0;
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const text = document.querySelector('p');
+                counter += 1;
+                if (counter === 3) {
+                    text.textContent = "5 seconds elapsed and clicked 3 times";
+                }
+                console.log(counter);
+            });
+        };
+
+        //még nem az igazi, mert ha az 5 sec előtt megvan a 3 katt, akkor nem írja ki
+/*                 window.addEventListener('DOMContentLoaded', () => {
+                    const button = document.querySelector('button');
+                    let IsFiveSecAfterLoad= false;
+                    let counter = 0;
+        
+                    function calculateTimer(){
+                        IsFiveSecAfterLoad= true;
+                    }        
+        
+                    timeout = setTimeout(calculateTimer, 5000);
+        
+                    button.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            const text = document.querySelector('p');
+                            counter += 1;
+                            if (counter === 3 && IsFiveSecAfterLoad) {
+                                text.textContent = "5 seconds elapsed and clicked 3 times";
+                            }  
+                    });
+                })   */
+    </script>
+</body>
+
+</html>

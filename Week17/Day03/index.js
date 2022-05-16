@@ -1,7 +1,8 @@
 // window.onload does the same
+//8. sor-for cikluson belüli dolgok function-be, úgy átláthatóbb lenne; selectMainImage-ttöbb fele szedni
 window.addEventListener("DOMContentLoaded", () => {
 
-    mainImageSelect(0);
+    selectMainImage(0);
     let actualIndex = 0;
     
     for (let i = 0; i < images.length; i++) {
@@ -11,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let thumbnails = document.querySelector(".thumbnails");
         thumbnails.appendChild(image);
         image.onclick = function(){
-            mainImageSelect(i);
+            selectMainImage(i);
             actualIndex = i;
         }
     } 
@@ -20,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     rightArrow.onclick = function(){
         if (actualIndex < images.length-1){
             actualIndex ++;
-            mainImageSelect(actualIndex); 
+            selectMainImage(actualIndex); 
         }          
     }
 
@@ -28,12 +29,12 @@ window.addEventListener("DOMContentLoaded", () => {
     leftArrow.onclick = function(){
         if (actualIndex >0) {
             actualIndex --;
-            mainImageSelect(actualIndex);  
+            selectMainImage(actualIndex);  
         }      
     }    
 })
 
-function mainImageSelect(index) {
+function selectMainImage(index) {
     
     let mainContainer = document.querySelector("#main_image_container");
     let mainImage = document.createElement("img");

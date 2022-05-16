@@ -13,7 +13,8 @@ imageURL[0].setAttribute("src", newImageURL)
 
 const link = document.getElementsByTagName('a');
 const greenFoxWebPage = "https://www.greenfoxacademy.com/";
-link[0].setAttribute("href",greenFoxWebPage );
+link[0].setAttribute("href", greenFoxWebPage);
 
-const firsButton = document.querySelector("button")
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button
+const secondButton = document.querySelector(".this-one");
+secondButton.textContent = "Don't click me!";
+secondButton.disabled = true;

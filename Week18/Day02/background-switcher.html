@@ -17,6 +17,9 @@
     </style>
   </head>
   <body>
+    <script type="text/javascript" language="JavaScript">
+      ord=Math.random()*10000000000000000;
+    </script>
     <script>
       // 1: Create a function that updates the <body> elements background-image's css property
       // 2: The image value should be https://loremflickr.com/g/1280/800/hungary/
@@ -25,6 +28,23 @@
       // http://www.adopsinsider.com/ad-ops-basics/what-is-a-cache-buster-and-how-does-it-work/
 
       // 4: Create a timer function that refreshes the background every 5 seconds
+
+      let image = document.createElement('img');
+      image.setAttribute('id', 'img');
+      image.setAttribute('src', 'https://loremflickr.com/g/1280/800/hungary/');
+      let body = document.querySelector('body');
+      body.appendChild(image);
+      
+
+      function changeBackground(){
+        let random = Math.random()*10000000000000000;
+          let image = document.querySelector('#img');
+          image.setAttribute('src', `https://loremflickr.com/g/1280/800/hungary/?x=${random}`);
+          let body = document.querySelector('body');
+      }
+
+      setInterval(changeBackground, 2000);
+
     </script>
   </body>
 </html>

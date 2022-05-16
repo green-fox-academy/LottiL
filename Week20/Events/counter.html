@@ -19,9 +19,9 @@
       And display the result in the result element */
     window.addEventListener('DOMContentLoaded', () => {
         const button = document.querySelector('button');
-        const list = document.querySelector('ul');
-        const result = document.querySelector('.result');
-        const countChild = () => {        
+        const countChild = () => {  
+            const list = document.querySelector('ul');
+            const result = document.querySelector('.result');      
             result.textContent = list.childElementCount;
         };
         button.addEventListener('click', countChild);

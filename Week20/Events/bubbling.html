@@ -46,15 +46,44 @@
          window.addEventListener('DOMContentLoaded', () => {
             const moveButtons = document.querySelectorAll("[data-action='move']");
             const zoomButtons = document.querySelectorAll("[data-action='zoom']");
+            const picture = document.querySelector(".img-inspector");
+            let zoom = 200//window.getComputedStyle(picture).backgroundSize, figyelni mert % -> parseInt();
+            let positionX = 0;//window.getComputedStyle(picture).backgroundPositionX;
+            let positionY = 0;//window.getComputedStyle(picture).backgroundPositionY;
+
+            //zoom-ra és positionokra minimumot írni!
+
             for (let i = 0; i < moveButtons.length; i++) {
                 moveButtons[i].addEventListener('click', () => {
-                console.log("button is clicked");
-                //event.target, position X, Y, background size
+                  if (event.target.dataset.direction==='up' && positionY >=10){
+                    picture.style.backgroundPositionY = `${positionY - 10}%`;
+                    positionY = positionY - 10;
+                  }
+                  if (event.target.dataset.direction==='down'){
+                    picture.style.backgroundPositionY = `${positionY + 10}%`;
+                    positionY = positionY + 10;
+                  }
+                  if (event.target.dataset.direction==='left'){
+                    picture.style.backgroundPositionX = `${positionX + 10}%`;
+                    positionX = positionX + 10;
+                  }
+                  if (event.target.dataset.direction==='right' && positionX >=10){
+                    picture.style.backgroundPositionX = `${positionX - 10}%`;
+                    positionX = positionX - 10;
+                  }
                 });                
             }
+            
             for (let i = 0; i < zoomButtons.length; i++) {
-                zoomButtons[i].addEventListener('click', () => {
-                console.log("zoombutton is clicked");
+                zoomButtons[i].addEventListener('click', (event) => {
+                  if (event.target.dataset.direction==='in'){
+                    picture.style.backgroundSize = `${zoom + 20}%`;
+                    zoom = zoom + 20;
+                  }
+                  if (event.target.dataset.direction==='out' && zoom >= 120){
+                    picture.style.backgroundSize = `${zoom - 20}%`;
+                    zoom = zoom - 20;
+                  }
                 });                
             }
         });  

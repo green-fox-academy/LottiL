@@ -7,41 +7,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
   <title>Document</title>
+  <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
 </head>
 
 <body>
   <h1>Baby output monitor</h1>
-  <label for="where">Where:</label>
-  <select id="where" name="where">
-    <option value="diaper">diaper</option>
-    <option value="toilet">toilet</option>
-  </select>
-  <p>please use this date format: YYYY-MM-DD HH:MI:SS</p>
-  <textarea id="when" rows="1" cols="19">Date</textarea>
-  <div class="container">
-    <button id="pee">
-      Pee
-    </button>
-    <button id="poo">
-      Poo
-    </button>
-    <button id="both">
-      Pee & Poo
-    </button>
+  <div id="container">
+    <div id="left-container">
+      <div id="place">
+        <label for="where">Where:</label><br>
+        <select id="where" name="where">
+          <option value="diaper">diaper</option>
+          <option value="toilet">toilet</option>
+        </select>
+      </div>
+      <div id="date">
+        <label for="when">Please set the date</label><br>
+        <input id="when" type="datetime-local">
+      </div>
+      <div id="button_container">
+        <button id="pee">
+          Pee
+        </button>
+        <button id="poo">
+          Poo
+        </button>
+        <button id="both">
+          Pee & Poo
+        </button>
+      </div>
+      <div id="input_container">
+        <label for="from">Please set the date from and to</label><br>
+        <input id="from" type="datetime-local">
+        <input id="to" type="datetime-local"><br>
+        <button id="search">
+          Search
+        </button>
+      </div>
+      <div id="results">
+        <p>Results:</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">PeeOrPoo</th>
+              <th scope="col">Where</th>
+            </tr>
+          </thead>
+          <tbody id="data-rows">
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="graphical">
+    </div>
   </div>
-  <div class="container2"></div>
-  <p>please use this date format: YYYY-MM-DD HH:MI:SS</p>
-  <textarea id="from" rows="1" cols="19">Date from</textarea> <!--van date input field-->
-  <textarea id="to" rows="1" cols="19">Date to</textarea>
-  <div>
-  <button id="search">
-    Search
-  </button>
-  </div>
-  <p>Results:</p>
-  <textarea id="result" rows="100" cols="50"></textarea>
-  </div>
-  <script src="index.js"></script>
+  <script src="index.js" type="module"></script>
 </body>
 
 </html>
