@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoxDating</title>
+</head>
+<body>
+    <form method="POST" action="/sign-up">
+        <h1>Welcome to Fox Dating</h1>
+        <fieldset>
+            <legend>Create Profile</legend>
+            <label for="username">My username:</label>
+            <input id="username" type="text" required><br>
+            <label for="nickname">My nickname:</label>
+            <input id="nickname" type="text" required><br>
+            <span>I am a:</span>            
+            <input type="radio" id = "man" name = "gender">
+            <label for="man">Man</label>
+            <input type="radio" id = "man" name = "gender">
+            <label for="woman">Woman</label><br>
+            <span>Looking for:</span>            
+            <input type="radio" id = "man" name = "lookingForGender">
+            <label for="men">Men</label>
+            <input type="radio" id = "man" name = "lookingForGender">
+            <label for="women">Women</label>
+            <input type="radio" id = "man" name = "lookingForGender">
+            <label for="both">Both</label><br>
+            <label for="bithYear">I was born in:</label>
+            <input id="bithYear" type="number" required><br>
+            <label for="">My profile picture:</label>
+            <input id="picture" type="url" required>
+            <p>About me:</p>
+            <textarea id="aboutMe" rows="5" cols="20"></textarea><br>
+            <button id="submit-btn" type="submit">Submit</button>
+        </fieldset>
+    </form>
+<!--     <script src="index.js"></script> -->
+</body>
+</html>
+
+<!-- a születési év lehet select is, ez elegánsabb, kód kell, ami kigenerálja az értékeket (18-tól mondjuk 120 évig mosttól számítva)
+    <select id="where" name="where">
+    <option value="diaper">diaper</option>
+    <option value="toilet">toilet</option>
+  </select>
+const today = new Date();
+const thisYear = today.getFullYear(); -->
