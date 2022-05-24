@@ -47,7 +47,7 @@ app.post('/api/users', (req, res) => {
     const paramsName = [req.body.username];
 
     conn.query(queryName, paramsName, (errorName, resultName) => {
-        if (errorAlias) {
+        if (errorName) {
             res.status(500).send({ message: errorName.sqlMessage });
             return;
         } if (resultName.length > 0) {
@@ -91,9 +91,10 @@ app.post('/api/users', (req, res) => {
     });
 });
 
-app.get('/api/users:username', (req, res) => {
+app.get('/api/users/:username', (req, res) => {
     const username = req.params.username;
-    const query = `SELECT * FROM profiles 
+    const query = `SELECT username, nickname, birth_year, gender, target_gender, self_description, 
+    profile_picture_url FROM profiles 
     WHERE username = ?`;
     const params = [username];
     conn.query(query, params, (err, result) => {
@@ -101,13 +102,74 @@ app.get('/api/users:username', (req, res) => {
             console.error(err);
             res.status(500).send({ message: err.sqlMessage });
             return;
-        } if (result.length === 0) {
+        } if (result.length < 0) { /* (nem <= kell???) */
             res.status(404).send("Not Found");
             return
         }
-        res.status(200);
-        res.send(result);
+        const age = new Date().getFullYear() - Number(result[0].birth_year);
+        
+        res.status(200).send({ age, ...result[0] });
+/*         const message = [result[0].username,result[0].nickname,age,result[0].gender,result[0].target_gender, result[0].self_description, result[0].profile_picture_url]
+        res.status(200).send({ message }); 
+        áhh, a data-t kéne megváltoztatnom*/
     });
+});
+
+app.get('/api/random-user', (req, res) => {
+    const query = `SELECT username, nickname, birth_year, gender, target_gender, self_description, 
+    profile_picture_url FROM profiles 
+    ORDER BY RAND()
+    LIMIT 1`;
+    conn.query(query, (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send({ message: err.sqlMessage });
+            return;
+        }
+        const age = new Date().getFullYear() - Number(result[0].birth_year);
+        
+        res.status(200).send({ age, ...result[0] });
+/*         const message = [result[0].username,result[0].nickname,age,result[0].gender,result[0].target_gender, result[0].self_description, result[0].profile_picture_url]
+        res.status(200).send({ message }); */
+    });
+});
+
+app.post('/api/likes', (req, res) => {
+    const queryName = `
+        SELECT * FROM likes
+        WHERE target_username = (?) AND  source_username = (?)`
+
+    const params = [req.body.source_username, req.body.target_username];
+
+    conn.query(queryName, params, (errorName, resultName) => {
+        if (errorName) {
+            res.status(500).send({ message: errorName.sqlMessage });
+            return;       
+        } 
+        const query = `
+            INSERT INTO likes (source_username, target_username)
+            VALUES (?, ?)
+        `;
+
+        conn.query(query, params, (err, result) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send({ message: err.sqlMessage });
+                return;
+            }
+            res.status(201);
+        });
+   
+        if (resultName.length <= 0) {
+            return res.status(201).send({
+                "matched": false
+            });
+        } else {
+            return res.status(201).send({
+                "matched": true
+            });
+        } 
+    });       
 });
 
 app.listen(port, () =>

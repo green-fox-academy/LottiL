@@ -15,14 +15,13 @@ CREATE TABLE profiles (
     PRIMARY KEY (username)
 );
 
-/* DELETE TABLE matches; */
-/* like-ot tárolni! 3. táblában talán */
+DROP TABLE likes;
 
-CREATE TABLE matches (
+CREATE TABLE likes (
     id INT AUTO_INCREMENT,
-    username1 VARCHAR(64) NOT NULL,
-    username2 VARCHAR(64) NOT NULL,
+    source_username VARCHAR(64) NOT NULL,
+    target_username VARCHAR(64) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (username1) REFERENCES profiles(username),
-    FOREIGN KEY (username2) REFERENCES profiles(username)
+    FOREIGN KEY (source_username) REFERENCES profiles(username),
+    FOREIGN KEY (target_username) REFERENCES profiles(username)
 );
