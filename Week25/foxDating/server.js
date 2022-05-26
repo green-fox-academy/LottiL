@@ -102,16 +102,22 @@ app.get('/api/users/:username', (req, res) => {
             console.error(err);
             res.status(500).send({ message: err.sqlMessage });
             return;
-        } if (result.length < 0) { /* (nem <= kell???) */
+        } if (result.length <= 0) { 
             res.status(404).send("Not Found");
             return
         }
         const age = new Date().getFullYear() - Number(result[0].birth_year);
+        const data ={
+            username: result[0].username,
+            nickname: result[0].nickname,
+            age: age,
+            gender: result[0].gender,
+            target_gender: result[0].target_gender,
+            self_description: result[0].self_description,
+            profile_picture_url: result[0].profile_picture_url
+        }
         
-        res.status(200).send({ age, ...result[0] });
-/*         const message = [result[0].username,result[0].nickname,age,result[0].gender,result[0].target_gender, result[0].self_description, result[0].profile_picture_url]
-        res.status(200).send({ message }); 
-        áhh, a data-t kéne megváltoztatnom*/
+        res.status(200).send(data);
     });
 });
 
@@ -128,9 +134,17 @@ app.get('/api/random-user', (req, res) => {
         }
         const age = new Date().getFullYear() - Number(result[0].birth_year);
         
-        res.status(200).send({ age, ...result[0] });
-/*         const message = [result[0].username,result[0].nickname,age,result[0].gender,result[0].target_gender, result[0].self_description, result[0].profile_picture_url]
-        res.status(200).send({ message }); */
+        const data ={
+            username: result[0].username,
+            nickname: result[0].nickname,
+            age: age,
+            gender: result[0].gender,
+            target_gender: result[0].target_gender,
+            self_description: result[0].self_description,
+            profile_picture_url: result[0].profile_picture_url
+        }
+        
+        res.status(200).send(data);
     });
 });
 
