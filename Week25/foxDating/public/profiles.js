@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         const picture = document.querySelector("#picture");
         picture.setAttribute("src", `${data.profile_picture_url}`)
         const matching = document.querySelector("#matching");
-        matching.setAttribute(`href`, `/match/${username}`); //ez így jó lesz????
+        matching.setAttribute(`href`, `/match/${username}`);
     } else {
         console.error(response.statusText); //ezt json-osítani kéne, meg  serveren is mindent
     }

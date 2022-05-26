@@ -23,8 +23,6 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
-//html endpoints
-
 app.get('/', (req, res) => {
     res.redirect('/index.html');
 });
@@ -36,8 +34,6 @@ app.get('/profiles/:username', (req, res) => {
 app.get('/match/:username', (req, res) => {
     res.sendFile(__dirname + `/public/match.html`);
 });
-
-//API endpoints
 
 app.post('/api/users', (req, res) => {
     const queryName = `
@@ -51,7 +47,7 @@ app.post('/api/users', (req, res) => {
             res.status(500).send({ message: errorName.sqlMessage });
             return;
         } if (resultName.length > 0) {
-            return res.status(400).send("Username already exists");
+            return res.status(400).send({ message: "Username already exists" });
         }
 
         const query = `
@@ -102,12 +98,12 @@ app.get('/api/users/:username', (req, res) => {
             console.error(err);
             res.status(500).send({ message: err.sqlMessage });
             return;
-        } if (result.length <= 0) { 
-            res.status(404).send({ message: "Not Found"});
+        } if (result.length <= 0) {
+            res.status(404).send({ message: "Not Found" });
             return
         }
         const age = new Date().getFullYear() - Number(result[0].birth_year);
-        const data ={
+        const data = {
             username: result[0].username,
             nickname: result[0].nickname,
             age: age,
@@ -116,7 +112,7 @@ app.get('/api/users/:username', (req, res) => {
             self_description: result[0].self_description,
             profile_picture_url: result[0].profile_picture_url
         }
-        
+
         res.status(200).send(data);
     });
 });
@@ -133,8 +129,8 @@ app.get('/api/random-user', (req, res) => {
             return;
         }
         const age = new Date().getFullYear() - Number(result[0].birth_year);
-        
-        const data ={
+
+        const data = {
             username: result[0].username,
             nickname: result[0].nickname,
             age: age,
@@ -143,7 +139,7 @@ app.get('/api/random-user', (req, res) => {
             self_description: result[0].self_description,
             profile_picture_url: result[0].profile_picture_url
         }
-        
+
         res.status(200).send(data);
     });
 });
@@ -158,8 +154,8 @@ app.post('/api/likes', (req, res) => {
     conn.query(queryName, params, (errorName, resultName) => {
         if (errorName) {
             res.status(500).send({ message: errorName.sqlMessage });
-            return;       
-        } 
+            return;
+        }
         const query = `
             INSERT INTO likes (source_username, target_username)
             VALUES (?, ?)
@@ -173,7 +169,7 @@ app.post('/api/likes', (req, res) => {
             }
             res.status(201);
         });
-   
+
         if (resultName.length <= 0) {
             return res.status(201).send({
                 "matched": false
@@ -182,8 +178,8 @@ app.post('/api/likes', (req, res) => {
             return res.status(201).send({
                 "matched": true
             });
-        } 
-    });       
+        }
+    });
 });
 
 app.listen(port, () =>

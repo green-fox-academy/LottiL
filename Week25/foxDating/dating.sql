@@ -1,4 +1,4 @@
-/* CREATE DATABASE dating; */
+CREATE DATABASE dating;
 
 USE dating;
 

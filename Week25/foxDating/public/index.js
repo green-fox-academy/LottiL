@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const errorMsg = await response.json();
             return;
         }
-        
+
         window.location.assign(`/profiles/${username}`)
 
         document.querySelector('form').reset();
