@@ -103,7 +103,7 @@ app.get('/api/users/:username', (req, res) => {
             res.status(500).send({ message: err.sqlMessage });
             return;
         } if (result.length <= 0) { 
-            res.status(404).send("Not Found");
+            res.status(404).send({ message: "Not Found"});
             return
         }
         const age = new Date().getFullYear() - Number(result[0].birth_year);

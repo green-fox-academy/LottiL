@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        //ide kell vmi átirányítás
+        window.location.assign(`/profiles/${username}`)
 
         document.querySelector('form').reset();
     });
