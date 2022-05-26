@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const birth_year = document.querySelector('#birthYear').value;
         const gender = document.querySelector('.gender').value;
         const target_gender = document.querySelector('.lookingForGender').value;
-        const self_description = document.querySelector('#picture').value;
-        const profile_picture_url = document.querySelector('#aboutMe').value;
+        const self_description = document.querySelector('#aboutMe').value;
+        const profile_picture_url = document.querySelector('#picture').value;
 
         const response = await fetch('/api/users', {
             method: 'POST',

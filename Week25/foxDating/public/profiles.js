@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', async (event) => {
     event.preventDefault();
 
-    const response = await fetch('/api/users/:username', {
+    const username = window.location.href.split("/")[4];
+
+    const response = await fetch(`/api/users/${username}`, {
         method: 'GET',
     });
 
     if (response.ok) {
         const data = await response.json();
+        console.log(data)
         const nickname = document.querySelector("#nickname");
-        nickname.innerHTML = `<b>${data.nickname}(${data.age},${data.gender}</b>`
+        nickname.innerHTML = `<b>${data.nickname}(${data.age},${data.gender})</b>`
         const aboutMe = document.querySelector("#aboutMe");
         aboutMe.innerHTML = `"${data.self_description}"`;
         const picture = document.querySelector("#picture");

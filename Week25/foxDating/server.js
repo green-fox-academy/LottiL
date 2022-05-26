@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/profiles/:username', (req, res) => {
-    res.redirect('/profiles.html');
+    res.sendFile(__dirname + `/public/profiles.html`);
 });
 
 app.get('/match/:username', (req, res) => {
