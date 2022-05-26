@@ -34,7 +34,7 @@ app.get('/profiles/:username', (req, res) => {
 });
 
 app.get('/match/:username', (req, res) => {
-    res.redirect('/match.html');
+    res.sendFile(__dirname + `/public/match.html`);
 });
 
 //API endpoints
