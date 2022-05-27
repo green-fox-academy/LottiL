@@ -147,7 +147,7 @@ app.get('/api/random-user', (req, res) => {
 app.post('/api/likes', (req, res) => {
     const queryName = `
         SELECT * FROM likes
-        WHERE target_username = (?) AND  source_username = (?)`
+        WHERE target_username = ? AND  source_username = ?`
 
     const params = [req.body.source_username, req.body.target_username];
 
@@ -172,11 +172,11 @@ app.post('/api/likes', (req, res) => {
 
         if (resultName.length <= 0) {
             return res.status(201).send({
-                "matched": false
+                matched: false
             });
         } else {
             return res.status(201).send({
-                "matched": true
+                matched: true
             });
         }
     });

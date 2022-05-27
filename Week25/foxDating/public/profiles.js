@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         const aboutMe = document.querySelector("#aboutMe");
         aboutMe.innerHTML = `"${data.self_description}"`;
         const picture = document.querySelector("#picture");
-        picture.setAttribute("src", `${data.profile_picture_url}`)
+        picture.setAttribute("src", `${data.profile_picture_url}`);
         const matching = document.querySelector("#matching");
         matching.setAttribute(`href`, `/match/${username}`);
     } else {
-        console.error(response.statusText); //ezt json-osítani kéne, meg  serveren is mindent
+        console.error(response.response.json());
     }
 });
