@@ -1,21 +1,20 @@
-CREATE DATABASE dating;
+CREATE DATABASE IF NOT EXISTS dating; 
 
 USE dating;
 
-DROP TABLE profiles;
+DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS profiles;
 
 CREATE TABLE profiles (
     username VARCHAR(64) NOT NULL,
     nickname VARCHAR(64) NOT NULL,
     birth_year INT NOT NULL,
     gender ENUM('man','woman') NOT NUll,
-    target_gender ENUM('men','women','both') NOT NUll,
+    target_gender ENUM('man','woman','both') NOT NUll,
     self_description TEXT,
     profile_picture_url VARCHAR(64) NOT NULL,
     PRIMARY KEY (username)
 );
-
-DROP TABLE likes;
 
 CREATE TABLE likes (
     id INT AUTO_INCREMENT,

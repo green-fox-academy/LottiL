@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         const matching = document.querySelector("#matching");
         matching.setAttribute(`href`, `/match/${username}`);
     } else {
-        console.error(response.response.json());
+        //console.error(response.response.json());
+        window.location.assign(`/public/error.html`);
     }
 });

@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = document.querySelector('#username').value;
         const nickname = document.querySelector('#nickname').value;
         const birth_year = document.querySelector('#birthYear').value;
-        const gender = document.querySelector('.gender').value;
-        const target_gender = document.querySelector('.lookingForGender').value;
+        const gender = document.querySelector('.gender:checked').value;
+        const target_gender = document.querySelector('.lookingForGender:checked').value;
         const self_description = document.querySelector('#aboutMe').value;
         const profile_picture_url = document.querySelector('#picture').value;
 

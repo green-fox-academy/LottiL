@@ -75,6 +75,11 @@ app.post('/api/users', (req, res) => {
             data.self_description,
             data.profile_picture_url,
         ];
+        
+        const age = new Date().getFullYear() - Number(data.birth_year);
+        if(age < 18){
+            return res.status(400).send({ message: "you should be at least 18 years old" });
+        }
 
         conn.query(query, params, (err, result) => {
             if (err) {
@@ -118,11 +123,11 @@ app.get('/api/users/:username', (req, res) => {
 });
 
 app.get('/api/random-user', (req, res) => {
+    const myUsername = req.query.username;
+    const params = [myUsername];
     const query = `SELECT username, nickname, birth_year, gender, target_gender, self_description, 
-    profile_picture_url FROM profiles 
-    ORDER BY RAND()
-    LIMIT 1`;
-    conn.query(query, (err, result) => {
+    profile_picture_url FROM profiles WHERE username != ? ORDER BY RAND() LIMIT 1`;
+    conn.query(query, params, (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).send({ message: err.sqlMessage });

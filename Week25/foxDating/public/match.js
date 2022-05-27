@@ -31,12 +31,16 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 async function getRandomProfile() {
     const username = window.location.href.split("/")[4];
 
-    const response = await fetch(`/api/random-user`, {
+    const response = await fetch(`/api/random-user?username=${username}`, {
         method: 'GET',
     });
 
     if (response.ok) {
         const data = await response.json();
+/*             if (username === data.username){
+                getRandomProfile();
+            } */
+            //ezt igazából a server.js-ben kéne
         const loggedIn = document.querySelector("#loggedIn");
         loggedIn.innerHTML = `You are logged in as <a href="/profiles/${username}">${username}</a>`;
         const nickname = document.querySelector("#nickname");
