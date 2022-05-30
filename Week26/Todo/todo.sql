@@ -2,11 +2,12 @@ CREATE DATABASE IF NOT EXISTS todos;
 
 USE todos;
 
-DROP TABLE IF EXISTS todolist;
+DROP TABLE IF EXISTS todos;
 
-CREATE TABLE todolist (
+CREATE TABLE todos (
     id INT AUTO_INCREMENT,
+    text TEXT NOT NUll,
     completed ENUM('false','true') DEFAULT 'false',
-    self_description TEXT NOT NUll,
+    destroyed ENUM('false','true') DEFAULT 'false',
     PRIMARY KEY (id)
 );
