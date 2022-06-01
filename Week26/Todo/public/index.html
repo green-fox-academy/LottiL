@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Todos</title>
 </head>
+
 <body>
-    <div id = "green_container">
-        <div id= "inner_container">
-            <p class = "heading">TODOS</p><br>
-            <input class = "todo_input" type="text" required>
-            <button class = "button" >Add</button>
-            <table>
-<!--                 <tr>
-                  <td>Company</td>
-                  <td>Contact</td>
-                  <td>Country</td>
-                </tr>
-            Ezeket majd hozzá kell adogatni -->
+    <div id="green_container">
+        <div id="inner_container">
+            <p class="heading">TODOS</p><br>
+            <input class="todo_input" type="text" minlength="3" maxlength="100" required>
+            <button class="add_btn">Add</button>
+            <table id="todos_table">
             </table>
         </div>
     </div>
 
-    <ul class = "list"></ul>
-    <script src="index.js.js"></script>
+    <ul class="list"></ul>
+    <script src="/index.js"></script>
 
 </body>
+
 </html>
