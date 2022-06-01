@@ -13,18 +13,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     })
 
-    const checkboxs = document.querySelectorAll(".checkbox");
-    checkboxs.forEach(check => {
+    const checkboxes = document.querySelectorAll(".checkbox");
+    checkboxes.forEach(check => {
         check.addEventListener('change', async () => {
             await checkTodo(check.getAttribute("value"));
         });
-        //ezzel kell még vmit varázsolni
-        let checkbox = document.querySelector(`#check${check.id}`)
-        if(check.completed){
-            checkbox.checked = true;
-        }else{
-            checkbox.checked = false;
-        }
     })
 });
 
@@ -42,19 +35,15 @@ async function getTodos() {
 
     const table = document.querySelector("#todos_table");
     table.textContent = "";
+
     data.forEach(todoItem => {
+        const checked = todoItem.completed ? "checked" : "";
         table.innerHTML += `
         <tr>
             <td>${todoItem.text}</td>
             <td><button value = ${todoItem.id} id = "button${todoItem.id}" class="delete_btn"> <img src="/bin.png" width="40" height="40"></button></td>
-            <td><input value = ${todoItem.id} id = "check${todoItem.id}" class="checkbox" type="checkbox"></td>
+            <td><input value = ${todoItem.id} id = "check${todoItem.id}" class="checkbox" type="checkbox" ${checked}></td>
         </tr>`
-/*         let check = document.querySelector(`#check${todoItem.id}`)
-        if(todoItem.completed){
-            check.checked = true;
-        }else{
-            check.checked = false;
-        } */
     });
 }
 

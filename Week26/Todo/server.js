@@ -101,9 +101,10 @@ app.put('/api/todos/:id', (req, res) => {
         }
 
         const query2 = 'UPDATE todos SET text = ?, completed = ? WHERE id = ?';
+        const completed = req.body.completed != undefined ? req.body.completed : rows[0].completed;
         const params2 = [
             req.body.text || rows[0].text,
-            req.body.completed || rows[0].completed,
+            completed,
             req.params.id,
         ];
 
@@ -116,7 +117,9 @@ app.put('/api/todos/:id', (req, res) => {
             const data = {
                 id: req.params.id,
                 text: req.body.text || rows[0].text,
-                completed: req.body.completed || rows[0].completed
+                completed: completed
+                /* completed: req.body.completed || rows[0].completed */
+                //ha nincs kikommentelve, akkor nem jó, nem kéne vmi if,es rész? req.body.completed.length
             }
             res.status(200).send(data);
         });
