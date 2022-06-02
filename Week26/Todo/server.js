@@ -118,14 +118,12 @@ app.put('/api/todos/:id', (req, res) => {
                 id: req.params.id,
                 text: req.body.text || rows[0].text,
                 completed: completed
-                /* completed: req.body.completed || rows[0].completed */
-                //ha nincs kikommentelve, akkor nem jó, nem kéne vmi if,es rész? req.body.completed.length
             }
             res.status(200).send(data);
         });
     });
 });
-    
+
 
 app.delete('/api/todos/:id', (req, res) => {
     const params = [parseInt(req.params.id)];
@@ -141,7 +139,7 @@ app.delete('/api/todos/:id', (req, res) => {
             console.error(err);
             res.status(500).send({ message: err.sqlMessage });
             return;
-        }if (result.length <= 0 || parseInt(req.params.id) === NaN) {
+        } if (result.length <= 0 || parseInt(req.params.id) === NaN) {
             res.status(404).send({ message: "Not Found" });
             return
         }
