@@ -27,11 +27,12 @@ async function getTodos() {
         method: 'GET',
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-        console.error(response.response.json());
+        console.error(response.json());
         return;
     }
-    const data = await response.json();
 
     const table = document.querySelector("#todos_table");
     table.textContent = "";
@@ -58,7 +59,7 @@ async function addTodo() {
     });
 
     if (!response.ok) {
-        console.error(response.response.json());
+        console.error(await response.json());
         return;
     }
     document.querySelector('.todo_input').value = "";
@@ -71,7 +72,7 @@ async function deleteTodo(id) {
     });
 
     if (!response.ok) {
-        console.error(response.response.json());
+        console.error(await response.json());
         return;
     }
     await getTodos();
@@ -89,7 +90,7 @@ async function checkTodo(id) {
     });
 
     if (!response.ok) {
-        console.error(response.response.json());
+        console.error(await response.json());
         return;
     }
     await getTodos();
