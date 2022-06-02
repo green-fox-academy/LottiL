@@ -1,0 +1,33 @@
+#green_container {
+    background-color: rgb(76, 209, 189);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#inner_container {
+    background-color: lightgray;
+    justify-content: center;
+    align-content: center;
+    margin: 50px;
+}
+
+.heading {
+    font-family: 'Lato-Light', sans-serif;
+    font-size: 64px;
+    color: #ffffff;
+}
+
+.todo-item {
+    font-family: 'Lato-Regular', sans-serif;
+    font-size: 26px;
+    line-height: 2.2;
+    color: #cecece;
+}
+
+.add_btn {
+    font-family: 'Lato-Regular', sans-serif;
+    font-size: 26px;
+    color: #ffffff;
+    background-color: darkorchid;
+}
